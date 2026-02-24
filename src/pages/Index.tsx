@@ -75,7 +75,7 @@ const Index = () => {
             className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-8"
             style={{ color: "hsl(24 30% 77%)" }}
           >
-            Resultados Duradouros
+            Dr. Lucas Montanari
           </motion.p>
 
           <motion.h1
