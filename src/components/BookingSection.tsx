@@ -351,11 +351,10 @@ Aguardo confirmação.`;
           <motion.button
             onClick={handleSubmit}
             disabled={isSubmitting}
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.99 }}
+            whileHover={{ scale: 1.03, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             className={cn(
-              "w-full py-4 rounded-md font-sans text-xs tracking-[0.25em] uppercase font-medium transition-all duration-500 flex items-center justify-center gap-3",
-              "bg-primary text-primary-foreground hover:opacity-90 disabled:opacity-60"
+              "w-full py-4 rounded-md font-sans text-xs tracking-[0.25em] uppercase font-medium flex items-center justify-center gap-3 btn-premium text-primary-foreground disabled:opacity-60"
             )}
           >
             {isSubmitting ? (
