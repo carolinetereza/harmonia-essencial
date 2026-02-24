@@ -7,6 +7,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
 import logo from "@/assets/logo.png";
 import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
+import FloatingSocial from "@/components/FloatingSocial";
 
 const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
 
@@ -40,8 +41,8 @@ const Index = () => {
 
   return (
     <div className="grain-overlay">
-      {/* Subtle Particle Background */}
       <ParticleBackground />
+      <FloatingSocial />
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
