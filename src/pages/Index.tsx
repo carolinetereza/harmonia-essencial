@@ -3,7 +3,10 @@ import { useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import fotonaBg from "@/assets/fotona-bg.jpg";
 import BookingSection from "@/components/BookingSection";
+import ParticleBackground from "@/components/ParticleBackground";
+import Card3D from "@/components/Card3D";
 import logo from "@/assets/logo.png";
+import { useGsapScrollTrigger } from "@/hooks/useGsapScrollTrigger";
 
 const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
 
@@ -32,8 +35,14 @@ const Index = () => {
   });
   const fotonaY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
+  // Initialize GSAP ScrollTrigger
+  useGsapScrollTrigger();
+
   return (
     <div className="grain-overlay">
+      {/* Subtle Particle Background */}
+      <ParticleBackground />
+
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -112,43 +121,36 @@ const Index = () => {
 
       {/* Filosofia Médica */}
       <section className="py-32 md:py-44 bg-background">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center"
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p
+            data-gsap="fadeUp"
+            className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6"
           >
-            <motion.p
-              variants={fadeUp}
-              className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6"
-            >
-              Filosofia
-            </motion.p>
-            <motion.h2
-              custom={1}
-              variants={fadeUp}
-              className="font-serif text-3xl md:text-5xl lg:text-6xl font-medium text-foreground mb-16 leading-[1.15]"
-            >
-              A Arte da Naturalidade
-            </motion.h2>
-            <motion.div custom={2} variants={fadeUp} className="space-y-6 max-w-2xl mx-auto">
-              <p className="font-sans text-lg md:text-xl font-light text-muted-foreground leading-relaxed">
-                Nosso foco não é transformação exagerada.
-              </p>
-              <p className="font-serif text-2xl md:text-3xl italic text-foreground">
-                É refinamento. É estrutura. É equilíbrio.
-              </p>
-              <p className="font-sans text-lg md:text-xl font-light text-muted-foreground leading-relaxed">
-                Harmonização facial e corporal baseada em ciência, precisão anatômica e respeito à individualidade de cada paciente.
-              </p>
-            </motion.div>
-          </motion.div>
+            Filosofia
+          </p>
+          <h2
+            data-gsap="fadeUp"
+            data-gsap-delay="0.15"
+            className="font-serif text-3xl md:text-5xl lg:text-6xl font-medium text-foreground mb-16 leading-[1.15]"
+          >
+            A Arte da Naturalidade
+          </h2>
+          <div className="space-y-6 max-w-2xl mx-auto">
+            <p data-gsap="fadeUp" data-gsap-delay="0.3" className="font-sans text-lg md:text-xl font-light text-muted-foreground leading-relaxed">
+              Nosso foco não é transformação exagerada.
+            </p>
+            <p data-gsap="scaleIn" data-gsap-delay="0.45" className="font-serif text-2xl md:text-3xl italic text-foreground">
+              É refinamento. É estrutura. É equilíbrio.
+            </p>
+            <p data-gsap="fadeUp" data-gsap-delay="0.6" className="font-sans text-lg md:text-xl font-light text-muted-foreground leading-relaxed">
+              Harmonização facial e corporal baseada em ciência, precisão anatômica e respeito à individualidade de cada paciente.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Separator */}
-      <div className="max-w-xs mx-auto border-t border-border" />
+      <div className="max-w-xs mx-auto border-t border-border origin-left" data-gsap-line />
 
       {/* Tecnologia Fotona */}
       <section ref={fotonaRef} className="relative py-32 md:py-44 overflow-hidden">
@@ -163,81 +165,68 @@ const Index = () => {
         </motion.div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+          <p
+            data-gsap="fadeUp"
+            className="text-xs tracking-[0.3em] uppercase font-sans mb-6"
+            style={{ color: "hsl(24 30% 77%)" }}
           >
-            <motion.p
-              variants={fadeUp}
-              className="text-xs tracking-[0.3em] uppercase font-sans mb-6"
-              style={{ color: "hsl(24 30% 77%)" }}
-            >
-              Tecnologia de Ponta
-            </motion.p>
-            <motion.h2
-              custom={1}
-              variants={fadeUp}
-              className="font-serif text-3xl md:text-5xl font-medium text-white mb-8 leading-[1.15]"
-            >
-              Tecnologia Fotona: Estímulo Profundo de Colágeno
-            </motion.h2>
-            <motion.p
-              custom={2}
-              variants={fadeUp}
-              className="font-sans text-lg font-light text-white/70 mb-16 max-w-2xl leading-relaxed"
-            >
-              Protocolo personalizado após avaliação.
-            </motion.p>
+            Tecnologia de Ponta
+          </p>
+          <h2
+            data-gsap="fadeUp"
+            data-gsap-delay="0.15"
+            className="font-serif text-3xl md:text-5xl font-medium text-white mb-8 leading-[1.15]"
+          >
+            Tecnologia Fotona: Estímulo Profundo de Colágeno
+          </h2>
+          <p
+            data-gsap="fadeUp"
+            data-gsap-delay="0.3"
+            className="font-sans text-lg font-light text-white/70 mb-16 max-w-2xl leading-relaxed"
+          >
+            Protocolo personalizado após avaliação.
+          </p>
 
-            <motion.div
-              custom={3}
-              variants={fadeUp}
-              className="grid md:grid-cols-2 gap-6"
-            >
-              {[
-                "Estímulo avançado de colágeno e elastina",
-                "Redução progressiva de rugas e flacidez",
-                "Melhora da textura e firmeza da pele",
-                "Resultados progressivos e duradouros",
-              ].map((benefit, i) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              "Estímulo avançado de colágeno e elastina",
+              "Redução progressiva de rugas e flacidez",
+              "Melhora da textura e firmeza da pele",
+              "Resultados progressivos e duradouros",
+            ].map((benefit, i) => (
+              <Card3D key={i}>
                 <div
-                  key={i}
-                  className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10"
+                  data-gsap="fadeLeft"
+                  data-gsap-delay={String(0.15 * i)}
+                  className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm"
                 >
                   <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-nude to-transparent flex-shrink-0" />
                   <p className="font-sans text-sm md:text-base text-white/90 leading-relaxed">
                     {benefit}
                   </p>
                 </div>
-              ))}
-            </motion.div>
-          </motion.div>
+              </Card3D>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Especialidades */}
       <section className="py-32 md:py-44 bg-background">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+          <p
+            data-gsap="fadeUp"
+            className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6 text-center"
           >
-            <motion.p
-              variants={fadeUp}
-              className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6 text-center"
-            >
-              Especialidades
-            </motion.p>
-            <motion.h2
-              custom={1}
-              variants={fadeUp}
-              className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-20 text-center leading-[1.15]"
-            >
-              Protocolos Médicos de Excelência
-            </motion.h2>
-          </motion.div>
+            Especialidades
+          </p>
+          <h2
+            data-gsap="fadeUp"
+            data-gsap-delay="0.15"
+            className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-20 text-center leading-[1.15]"
+          >
+            Protocolos Médicos de Excelência
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -274,30 +263,28 @@ const Index = () => {
                 ],
               },
             ].map((category, idx) => (
-              <motion.div
-                key={idx}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                custom={idx}
-                variants={fadeUp}
-                className="group glass-card p-8 md:p-10 transition-all duration-500 hover:shadow-lg hover:-translate-y-1"
-              >
-                <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-8 leading-tight">
-                  {category.title}
-                </h3>
-                <ul className="space-y-3">
-                  {category.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="font-sans text-sm text-muted-foreground leading-relaxed flex items-start gap-3"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              <Card3D key={idx}>
+                <div
+                  data-gsap="fadeUp"
+                  data-gsap-delay={String(idx * 0.15)}
+                  className="glass-card p-8 md:p-10 rounded-sm h-full"
+                >
+                  <h3 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-8 leading-tight">
+                    {category.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {category.items.map((item, i) => (
+                      <li
+                        key={i}
+                        className="font-sans text-sm text-muted-foreground leading-relaxed flex items-start gap-3"
+                      >
+                        <span className="w-1 h-1 rounded-full bg-secondary mt-2 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card3D>
             ))}
           </div>
         </div>
@@ -306,26 +293,21 @@ const Index = () => {
       {/* Experiência do Paciente */}
       <section className="py-32 md:py-44 bg-cream">
         <div className="max-w-5xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center mb-20"
-          >
-            <motion.p
-              variants={fadeUp}
+          <div className="text-center mb-20">
+            <p
+              data-gsap="fadeUp"
               className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6"
             >
               Sua Jornada
-            </motion.p>
-            <motion.h2
-              custom={1}
-              variants={fadeUp}
+            </p>
+            <h2
+              data-gsap="fadeUp"
+              data-gsap-delay="0.15"
               className="font-serif text-3xl md:text-5xl font-medium text-foreground leading-[1.15]"
             >
               Experiência Personalizada
-            </motion.h2>
-          </motion.div>
+            </h2>
+          </div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
@@ -334,13 +316,10 @@ const Index = () => {
               { step: "03", title: "Execução Precisa", desc: "Procedimentos realizados com técnica apurada e tecnologia de ponta" },
               { step: "04", title: "Acompanhamento", desc: "Seguimento estratégico para otimizar e manter os resultados" },
             ].map((item, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                custom={idx}
-                variants={fadeUp}
+                data-gsap="fadeUp"
+                data-gsap-delay={String(idx * 0.12)}
                 className="text-center md:text-left"
               >
                 <p className="font-serif text-4xl md:text-5xl font-light text-secondary/40 mb-4">
@@ -352,7 +331,7 @@ const Index = () => {
                 <p className="font-sans text-sm text-muted-foreground leading-relaxed">
                   {item.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -361,38 +340,28 @@ const Index = () => {
       {/* Atendimento */}
       <section className="py-32 md:py-44 bg-background">
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center"
-          >
-            <motion.p
-              variants={fadeUp}
+          <div className="text-center">
+            <p
+              data-gsap="fadeUp"
               className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6"
             >
               Atendimento
-            </motion.p>
-            <motion.h2
-              custom={1}
-              variants={fadeUp}
+            </p>
+            <h2
+              data-gsap="fadeUp"
+              data-gsap-delay="0.15"
               className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-16 leading-[1.15]"
             >
               Onde Atendemos
-            </motion.h2>
-          </motion.div>
+            </h2>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid md:grid-cols-3 gap-12"
-          >
+          <div className="grid md:grid-cols-3 gap-12">
             {["São Paulo", "Aracaju", "Recife"].map((city, idx) => (
-              <motion.div
+              <div
                 key={city}
-                custom={idx}
-                variants={fadeUp}
+                data-gsap="fadeUp"
+                data-gsap-delay={String(idx * 0.15)}
                 className="text-center py-8 border-t border-border"
               >
                 <h3 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-2">
@@ -401,9 +370,9 @@ const Index = () => {
                 <p className="font-sans text-sm text-muted-foreground">
                   Atendimento com hora marcada
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -413,35 +382,29 @@ const Index = () => {
       {/* CTA Final */}
       <section className="py-32 md:py-44 bg-primary text-primary-foreground">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+          <h2
+            data-gsap="fadeUp"
+            className="font-serif text-3xl md:text-5xl font-medium mb-8 leading-[1.15]"
           >
-            <motion.h2
-              variants={fadeUp}
-              className="font-serif text-3xl md:text-5xl font-medium mb-8 leading-[1.15]"
-            >
-              Seu Protocolo Começa com Uma Avaliação Especializada
-            </motion.h2>
-            <motion.p
-              custom={1}
-              variants={fadeUp}
-              className="font-sans text-base font-light mb-12 opacity-70 leading-relaxed"
-            >
-              Agende sua consulta privada e descubra o protocolo ideal para os seus objetivos.
-            </motion.p>
-            <motion.a
-              custom={2}
-              variants={fadeUp}
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-12 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-500"
-            >
-              Agendar Consulta
-            </motion.a>
-          </motion.div>
+            Seu Protocolo Começa com Uma Avaliação Especializada
+          </h2>
+          <p
+            data-gsap="fadeUp"
+            data-gsap-delay="0.15"
+            className="font-sans text-base font-light mb-12 opacity-70 leading-relaxed"
+          >
+            Agende sua consulta privada e descubra o protocolo ideal para os seus objetivos.
+          </p>
+          <a
+            data-gsap="scaleIn"
+            data-gsap-delay="0.3"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-12 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-500"
+          >
+            Agendar Consulta
+          </a>
         </div>
       </section>
 
