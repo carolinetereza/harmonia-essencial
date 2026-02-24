@@ -48,9 +48,9 @@ const Index = () => {
           <img src={logo} alt="LC Clinic" className="h-8 w-auto" />
           <a
             href="#agendar"
-            className="hidden md:inline-block px-8 py-2.5 text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
+            className="px-6 md:px-8 py-2 md:py-2.5 text-[12px] md:text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
           >
-            Agendar consulta
+            Agendar
           </a>
         </div>
       </nav>
