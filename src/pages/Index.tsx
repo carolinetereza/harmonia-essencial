@@ -3,6 +3,7 @@ import { useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import fotonaBg from "@/assets/fotona-bg.jpg";
 import BookingSection from "@/components/BookingSection";
+import logo from "@/assets/logo.png";
 
 const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
 
@@ -36,9 +37,7 @@ const Index = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="font-serif text-lg tracking-wide text-foreground">
-            Dr. Lucas Montanari
-          </div>
+          <img src={logo} alt="LC Clinic" className="h-8 w-auto" />
           <a
             href="#agendar"
             className="hidden md:inline-block px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-sans font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
