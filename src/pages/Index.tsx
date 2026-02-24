@@ -449,9 +449,9 @@ const Index = () => {
       <footer className="py-16 bg-foreground text-background">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <p className="font-serif text-lg tracking-wide">Dr. Lucas Montanari</p>
-              <p className="font-sans text-xs text-background/50 mt-1">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <img src={logo} alt="LC Clinic" className="h-10 w-auto invert" />
+              <p className="font-sans text-xs text-background/50">
                 Harmonização Facial e Corporal
               </p>
             </div>
