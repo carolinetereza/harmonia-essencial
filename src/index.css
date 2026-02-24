@@ -100,10 +100,67 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
     font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    font-size: 2.375rem; /* 38px mobile */
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.3px;
+    font-size: 1.75rem; /* 28px mobile */
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: 1.375rem; /* 22px */
+  }
+
+  h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  p {
+    line-height: 1.65;
+  }
+
+  /* Desktop typography scale */
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.5rem; /* 56px */
+    }
+    h2 {
+      font-size: 2.25rem; /* 36px */
+    }
+    h3 {
+      font-size: 1.5rem; /* 24px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 4rem; /* 64px */
+    }
+    h2 {
+      font-size: 2.5rem; /* 40px */
+    }
   }
 }
 
@@ -169,4 +226,18 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Luxury button typography */
+.btn-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: none;
+}
+
+/* Small text utility */
+.text-luxury-small {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
 }

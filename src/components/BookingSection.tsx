@@ -96,7 +96,7 @@ Aguardo confirmação.`;
   };
 
   return (
-    <section id="agendar" className="py-32 md:py-44 relative overflow-hidden">
+    <section id="agendar" className="py-36 md:py-48 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--nude)/0.3)] via-[hsl(var(--cream))] to-[hsl(var(--ivory))]"/>
       <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -108,18 +108,18 @@ Aguardo confirmação.`;
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <motion.p
             variants={fadeUp}
-            className="text-xs tracking-[0.3em] uppercase font-sans text-muted-foreground mb-6"
+            className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
           >
             Agendamento
           </motion.p>
           <motion.h2
             custom={1}
             variants={fadeUp}
-            className="font-serif text-3xl md:text-5xl font-medium text-foreground leading-[1.15]"
+            className="font-serif text-foreground leading-[1.12]"
           >
             Agende Sua Consulta
           </motion.h2>
@@ -354,23 +354,23 @@ Aguardo confirmação.`;
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.98 }}
             className={cn(
-              "w-full py-4 rounded-md font-sans text-xs tracking-[0.25em] uppercase font-medium flex items-center justify-center gap-3 btn-premium text-primary-foreground disabled:opacity-60"
+              "w-full py-4 rounded-md font-sans text-[13px] tracking-[0.08em] font-medium flex items-center justify-center gap-3 btn-premium text-primary-foreground disabled:opacity-60"
             )}
           >
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Redirecionando...
+                Redirecionando
               </>
             ) : (
               <>
-                Confirmar Agendamento
+                Confirmar agendamento
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
           </motion.button>
 
-          <p className="font-sans text-xs text-muted-foreground text-center mt-4">
+          <p className="font-sans text-[14px] text-muted-foreground text-center mt-5">
             Você será redirecionado ao WhatsApp para confirmação.
           </p>
         </motion.div>
