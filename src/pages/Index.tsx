@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import fotonaBg from "@/assets/fotona-bg.jpg";
+import BookingSection from "@/components/BookingSection";
 
 const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
 
@@ -31,9 +32,7 @@ const Index = () => {
             Dr. Lucas Montanari
           </div>
           <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#agendar"
             className="hidden md:inline-block px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-sans font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
           >
             Agendar Consulta
@@ -92,9 +91,7 @@ const Index = () => {
             className="flex flex-col items-center gap-6"
           >
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#agendar"
               className="inline-block px-10 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 transition-all duration-500"
             >
               Agendar Consulta Privada
@@ -402,6 +399,9 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Booking Section */}
+      <BookingSection />
 
       {/* CTA Final */}
       <section className="py-32 md:py-44 bg-primary text-primary-foreground">
