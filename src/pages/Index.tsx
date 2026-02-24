@@ -16,7 +16,15 @@ const fadeUp = {
 };
 
 const Index = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
   const fotonaRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress: heroScrollProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(heroScrollProgress, [0, 1], ["0%", "30%"]);
+
   const { scrollYProgress } = useScroll({
     target: fotonaRef,
     offset: ["start end", "end start"],
@@ -41,16 +49,16 @@ const Index = () => {
       </nav>
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
+      <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <motion.div className="absolute inset-0" style={{ y: heroY }}>
           <img
             src={heroBg}
-            alt="Ambiente premium do instituto"
-            className="w-full h-full object-cover"
+            alt="Dr. Lucas Montanari"
+            className="w-full h-full object-cover scale-110"
             loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-        </div>
+        </motion.div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <motion.p
