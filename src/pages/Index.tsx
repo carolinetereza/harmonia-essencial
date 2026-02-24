@@ -49,7 +49,7 @@ const Index = () => {
           <img src={logo} alt="LC Clinic" className="h-8 w-auto" />
           <a
             href="#agendar"
-            className="hidden md:inline-block px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-sans font-medium bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+            className="hidden md:inline-block px-6 py-2.5 text-xs tracking-[0.2em] uppercase font-sans font-medium text-primary-foreground btn-premium rounded-sm"
           >
             Agendar Consulta
           </a>
@@ -108,7 +108,7 @@ const Index = () => {
           >
             <a
               href="#agendar"
-              className="inline-block px-10 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium bg-white/10 backdrop-blur-sm border border-white/30 text-white hover:bg-white/20 transition-all duration-500"
+              className="inline-block px-10 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium backdrop-blur-sm border border-white/30 text-white btn-premium-outline"
             >
               Agendar Consulta Privada
             </a>
@@ -401,7 +401,7 @@ const Index = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-12 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-500"
+            className="inline-block px-12 py-4 text-xs tracking-[0.25em] uppercase font-sans font-medium border border-primary-foreground/30 text-primary-foreground btn-premium-outline"
           >
             Agendar Consulta
           </a>
