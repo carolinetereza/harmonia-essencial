@@ -1,10 +1,16 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/hero-bg.jpg";
 import fotonaBg from "@/assets/fotona-bg.jpg";
 import BookingSection from "@/components/BookingSection";
 import logo from "@/assets/logo.png";
 import FloatingSocial from "@/components/FloatingSocial";
+import ParticleBackground from "@/components/ParticleBackground";
+import Card3D from "@/components/Card3D";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
 
@@ -25,6 +31,54 @@ const staggerContainer = {
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const fotonaRef = useRef<HTMLDivElement>(null);
+  const separatorRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+
+  // GSAP ScrollTrigger animations
+  useEffect(() => {
+    // Separator line animation
+    if (separatorRef.current) {
+      gsap.fromTo(
+        separatorRef.current,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 1.2,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: separatorRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }
+
+    // CTA section parallax text
+    if (ctaRef.current) {
+      const heading = ctaRef.current.querySelector("h2");
+      if (heading) {
+        gsap.fromTo(
+          heading,
+          { letterSpacing: "0.05em" },
+          {
+            letterSpacing: "-0.01em",
+            ease: "none",
+            scrollTrigger: {
+              trigger: ctaRef.current,
+              start: "top bottom",
+              end: "top center",
+              scrub: 1,
+            },
+          }
+        );
+      }
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   const { scrollYProgress: heroScrollProgress } = useScroll({
     target: heroRef,
@@ -40,6 +94,7 @@ const Index = () => {
 
   return (
     <div className="grain-overlay">
+      <ParticleBackground />
       <FloatingSocial />
 
       {/* Navigation */}
@@ -154,10 +209,10 @@ const Index = () => {
       </section>
 
       {/* Separator */}
-      <motion.div
-        initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }} transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+      <div
+        ref={separatorRef}
         className="max-w-xs mx-auto border-t border-border origin-left"
+        style={{ transform: "scaleX(0)" }}
       />
 
       {/* Tecnologia Fotona */}
@@ -277,24 +332,26 @@ const Index = () => {
                 ],
               },
             ].map((category, idx) => (
-              <motion.div key={idx} variants={fadeUp}
-                className="glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300"
-              >
-                <h3 className="font-serif font-medium text-foreground mb-8 leading-tight">
-                  {category.title}
-                </h3>
-                <ul className="space-y-3.5">
-                  {category.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="font-sans text-[15px] text-muted-foreground leading-[1.65] flex items-start gap-3"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              <Card3D key={idx} className="h-full">
+                <motion.div variants={fadeUp}
+                  className="glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <h3 className="font-serif font-medium text-foreground mb-8 leading-tight">
+                    {category.title}
+                  </h3>
+                  <ul className="space-y-3.5">
+                    {category.items.map((item, i) => (
+                      <li
+                        key={i}
+                        className="font-sans text-[15px] text-muted-foreground leading-[1.65] flex items-start gap-3"
+                      >
+                        <span className="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </Card3D>
             ))}
           </motion.div>
         </div>
@@ -398,7 +455,7 @@ const Index = () => {
       <BookingSection />
 
       {/* CTA Final */}
-      <section className="py-36 md:py-48 bg-primary text-primary-foreground">
+      <section ref={ctaRef} className="py-36 md:py-48 bg-primary text-primary-foreground">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
