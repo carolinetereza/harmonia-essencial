@@ -9,10 +9,13 @@ import logo from "@/assets/logo.png";
 import FloatingSocial from "@/components/FloatingSocial";
 import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
+import { Mail, Phone, Instagram } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
+const WHATSAPP_URL = "https://wa.me/551131923965?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
+const EMAIL = "lcclinic@yahoo.com";
+const INSTAGRAM_URL = "https://www.instagram.com/lcclinic/";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -34,9 +37,7 @@ const Index = () => {
   const separatorRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
-  // GSAP ScrollTrigger animations
   useEffect(() => {
-    // Separator line animation
     if (separatorRef.current) {
       gsap.fromTo(
         separatorRef.current,
@@ -54,7 +55,6 @@ const Index = () => {
       );
     }
 
-    // CTA section parallax text
     if (ctaRef.current) {
       const heading = ctaRef.current.querySelector("h2");
       if (heading) {
@@ -115,7 +115,7 @@ const Index = () => {
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
           <img
             src={heroBg}
-            alt="Dr. Lucas Montanari"
+            alt="LC Clinic"
             className="w-full h-full object-cover scale-110"
             loading="eager"
           />
@@ -127,10 +127,10 @@ const Index = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-8"
+            className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-4"
             style={{ color: "hsl(24 30% 77%)" }}
           >
-            Dr. Lucas Montanari
+            Founder Lucas Montanari
           </motion.p>
 
           <motion.h1
@@ -138,9 +138,9 @@ const Index = () => {
             animate="visible"
             custom={1}
             variants={fadeUp}
-            className="font-serif font-semibold leading-[1.08] tracking-[-0.5px] mb-8 text-white"
+            className="font-serif font-semibold leading-[1.08] tracking-[-0.5px] mb-6 text-white"
           >
-            Excelência em Harmonização Facial e Corporal
+            LC Clinic
           </motion.h1>
 
           <motion.p
@@ -150,7 +150,7 @@ const Index = () => {
             variants={fadeUp}
             className="font-sans text-[17px] md:text-lg font-normal max-w-2xl mx-auto mb-14 text-white/75 leading-[1.65]"
           >
-            Protocolos médicos personalizados com tecnologia avançada para resultados naturais e duradouros.
+            Especialista em Harmonização Facial e Corporal e Estética Avançada
           </motion.p>
 
           <motion.div
@@ -167,13 +167,13 @@ const Index = () => {
               Agendar consulta privada
             </a>
             <p className="text-[13px] tracking-[0.12em] font-sans text-white/45 font-normal">
-              Atendimento em São Paulo, Aracaju e Recife
+              Atendimento em São Paulo e Rio de Janeiro
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Filosofia Médica */}
+      {/* Sobre — Bio */}
       <section className="py-36 md:py-48 bg-background">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.p
@@ -181,28 +181,25 @@ const Index = () => {
             variants={fadeUp}
             className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
           >
-            Filosofia
+            Sobre
           </motion.p>
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             custom={1} variants={fadeUp}
-            className="font-serif text-foreground mb-20 leading-[1.12]"
+            className="font-serif text-foreground mb-16 leading-[1.12]"
           >
-            A Arte da Naturalidade
+            Lucas Montanari Cerqueira
           </motion.h2>
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
             variants={staggerContainer}
             className="space-y-8 max-w-2xl mx-auto"
           >
-            <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.65]">
-              Nosso foco não é transformação exagerada.
+            <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
+              Lucas Montanari Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado.
             </motion.p>
-            <motion.p variants={fadeUp} className="font-serif text-2xl md:text-[28px] italic text-foreground leading-[1.2]">
-              É refinamento. É estrutura. É equilíbrio.
-            </motion.p>
-            <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.65]">
-              Harmonização facial e corporal baseada em ciência, precisão anatômica e respeito à individualidade de cada paciente.
+            <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
+              Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
             </motion.p>
           </motion.div>
         </div>
@@ -275,7 +272,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Especialidades */}
+      {/* Tratamentos */}
       <section className="py-36 md:py-48 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <motion.p
@@ -283,73 +280,39 @@ const Index = () => {
             variants={fadeUp}
             className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8 text-center"
           >
-            Especialidades
+            Tratamentos
           </motion.p>
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             custom={1} variants={fadeUp}
             className="font-serif text-foreground mb-24 text-center leading-[1.12]"
           >
-            Protocolos Médicos de Excelência
+            Protocolos de Excelência
           </motion.h2>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-10"
+            className="grid sm:grid-cols-2 md:grid-cols-3 gap-8"
           >
             {[
-              {
-                title: "Injetáveis de Alta Performance",
-                items: [
-                  "Botox (Face, Pescoço, Bruxismo, Hiperidrose)",
-                  "Preenchimentos Estruturais",
-                  "Bioestimuladores Faciais e Corporais",
-                  "Skinboosters",
-                  "Lifting Temporal",
-                ],
-              },
-              {
-                title: "Harmonização Corporal",
-                items: [
-                  "Harmonização Glútea",
-                  "Definição de Abdômen",
-                  "Ultrassom Micro e Macro Focado",
-                  "Criolipólise",
-                ],
-              },
-              {
-                title: "Tecnologias Avançadas",
-                items: [
-                  "Laser CO2",
-                  "Lavieen",
-                  "Ethera",
-                  "Ultraformer",
-                  "Luz Pulsada",
-                  "Microagulhamento",
-                  "Peelings Químicos",
-                  "MMP Capilar",
-                ],
-              },
-            ].map((category, idx) => (
+              { title: "Toxina Botulínica", desc: "Suavização de linhas de expressão com precisão e naturalidade" },
+              { title: "Preenchedores", desc: "Volumização e contorno facial para harmonização estrutural" },
+              { title: "Ultraformer III", desc: "Lifting não-cirúrgico com ultrassom micro e macro focado" },
+              { title: "MPT", desc: "Microagulhamento com drug delivery para rejuvenescimento profundo" },
+              { title: "Criolipólise", desc: "Redução de gordura localizada com tecnologia de resfriamento" },
+              { title: "Anatomia", desc: "Conhecimento anatômico avançado aplicado a cada protocolo" },
+            ].map((item, idx) => (
               <Card3D key={idx} className="h-full">
                 <motion.div variants={fadeUp}
-                  className="glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300"
+                  className="glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300 flex flex-col"
                 >
-                  <h3 className="font-serif font-medium text-foreground mb-8 leading-tight">
-                    {category.title}
+                  <h3 className="font-serif font-medium text-foreground mb-4 leading-tight">
+                    {item.title}
                   </h3>
-                  <ul className="space-y-3.5">
-                    {category.items.map((item, i) => (
-                      <li
-                        key={i}
-                        className="font-sans text-[15px] text-muted-foreground leading-[1.65] flex items-start gap-3"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-secondary mt-2.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="font-sans text-[15px] text-muted-foreground leading-[1.65]">
+                    {item.desc}
+                  </p>
                 </motion.div>
               </Card3D>
             ))}
@@ -385,7 +348,7 @@ const Index = () => {
             {[
               { step: "01", title: "Consulta Detalhada", desc: "Avaliação completa com escuta atenta às suas expectativas e histórico" },
               { step: "02", title: "Planejamento Individual", desc: "Protocolo exclusivo desenhado para a sua anatomia e objetivos" },
-              { step: "03", title: "Execução Precisa", desc: "Procedimentos realizados com técnica apurada e tecnologia de ponta" },
+              { step: "03", title: "Execução Precisa", desc: "Tratamentos realizados com técnica apurada e tecnologia de ponta" },
               { step: "04", title: "Acompanhamento", desc: "Seguimento estratégico para otimizar e manter os resultados" },
             ].map((item, idx) => (
               <motion.div
@@ -408,8 +371,46 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Atendimento */}
-      <section className="py-36 md:py-48 bg-background">
+      {/* Mentoria VIP */}
+      <section className="py-36 md:py-48 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
+          >
+            Educação
+          </motion.p>
+          <motion.h2
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+            custom={1} variants={fadeUp}
+            className="font-serif text-foreground mb-10 leading-[1.12]"
+          >
+            Mentoria VIP
+          </motion.h2>
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+            custom={2} variants={fadeUp}
+            className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75] max-w-2xl mx-auto mb-14"
+          >
+            Programa exclusivo de mentoria para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Conteúdo personalizado com acompanhamento direto de Lucas Montanari.
+          </motion.p>
+          <motion.a
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+            custom={3} variants={fadeUp}
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-14 py-4 text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
+          >
+            Seja nosso aluno
+          </motion.a>
+        </div>
+      </section>
+
+      {/* Atendimento — Localidades e Horários */}
+      <section className="py-36 md:py-48 bg-cream">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center">
             <motion.p
@@ -431,22 +432,46 @@ const Index = () => {
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-12"
+            className="grid md:grid-cols-2 gap-12 mb-20"
           >
-            {["São Paulo", "Aracaju", "Recife"].map((city) => (
+            {[
+              { city: "São Paulo — SP", address: "Endereço a confirmar" },
+              { city: "Rio de Janeiro — RJ", address: "Atendimento com hora marcada" },
+            ].map((loc) => (
               <motion.div
-                key={city}
+                key={loc.city}
                 variants={fadeUp}
                 className="text-center py-10 border-t border-border"
               >
                 <h3 className="font-serif font-medium text-foreground mb-3">
-                  {city}
+                  {loc.city}
                 </h3>
                 <p className="font-sans text-[15px] text-muted-foreground leading-[1.65]">
-                  Atendimento com hora marcada
+                  {loc.address}
                 </p>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Horários */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp}
+            className="text-center glass-card rounded-sm p-8 md:p-10 max-w-md mx-auto"
+          >
+            <h3 className="font-serif font-medium text-foreground mb-6 leading-tight">
+              Horário de Funcionamento
+            </h3>
+            <div className="space-y-3">
+              <div className="flex justify-between font-sans text-[15px]">
+                <span className="text-muted-foreground">Segunda a Sexta</span>
+                <span className="text-foreground font-medium">13:00 às 22:00</span>
+              </div>
+              <div className="flex justify-between font-sans text-[15px]">
+                <span className="text-muted-foreground">Sábado</span>
+                <span className="text-foreground font-medium">09:00 às 14:00</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -471,16 +496,30 @@ const Index = () => {
           >
             Agende sua consulta privada e descubra o protocolo ideal para os seus objetivos.
           </motion.p>
-          <motion.a
+
+          {/* Dual CTA — WhatsApp + Email */}
+          <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             custom={2} variants={fadeUp}
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-14 py-4 text-[13px] tracking-[0.08em] font-sans font-medium border border-primary-foreground/25 text-primary-foreground btn-premium-outline"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            Agendar consulta
-          </motion.a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-10 py-4 text-[13px] tracking-[0.08em] font-sans font-medium border border-primary-foreground/25 text-primary-foreground btn-premium-outline rounded-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Agendar via WhatsApp
+            </a>
+            <a
+              href={`mailto:${EMAIL}?subject=Agendamento%20de%20Consulta`}
+              className="inline-flex items-center gap-3 px-10 py-4 text-[13px] tracking-[0.08em] font-sans font-medium border border-primary-foreground/25 text-primary-foreground btn-premium-outline rounded-sm"
+            >
+              <Mail className="w-4 h-4" />
+              Agendar via E-mail
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -494,23 +533,43 @@ const Index = () => {
                 Harmonização Facial e Corporal
               </p>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-              <p className="font-sans text-[13px] text-background/45">
-                São Paulo, Aracaju e Recife
-              </p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-[13px] tracking-[0.08em] text-background/65 hover:text-background transition-colors"
-              >
-                Contato
-              </a>
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <p className="font-sans text-[13px] text-background/45">
+                  São Paulo — SP &nbsp;|&nbsp; Rio de Janeiro — RJ
+                </p>
+                <a
+                  href={`mailto:${EMAIL}`}
+                  className="font-sans text-[13px] text-background/65 hover:text-background transition-colors"
+                >
+                  {EMAIL}
+                </a>
+                <a
+                  href="tel:+551131923965"
+                  className="font-sans text-[13px] text-background/65 hover:text-background transition-colors"
+                >
+                  (11) 3192-3965
+                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram @lcclinic"
+                  className="text-background/45 hover:text-background transition-colors"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <span className="font-sans text-[12px] text-background/35">
+                  @lcclinic — em construção
+                </span>
+              </div>
             </div>
           </div>
           <div className="mt-14 pt-8 border-t border-background/10 text-center">
             <p className="font-sans text-[13px] text-background/25">
-              Todos os direitos reservados.
+              © {new Date().getFullYear()} LC Clinic — lucasmontanari.com.br — Todos os direitos reservados.
             </p>
           </div>
         </div>

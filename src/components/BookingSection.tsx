@@ -7,29 +7,29 @@ import { ptBR } from "date-fns/locale";
 import { ChevronDown, CalendarIcon, Clock, User, Stethoscope, ArrowRight, Loader2 } from "lucide-react";
 
 const PROCEDURES = [
-  "Botox (Face / Pescoço / Bruxismo / Hiperidrose)",
-  "Preenchimento Facial",
+  "Toxina Botulínica",
+  "Preenchedores",
+  "Ultraformer III",
+  "MPT",
+  "Criolipólise",
   "Skinboosters",
   "Bioestimuladores de Colágeno",
-  "Lifting Temporal",
   "Harmonização Glútea",
   "Harmonização Corporal",
-  "Criolipólise",
   "Laser Fotona",
-  "Ultraformer",
   "Peeling Químico",
   "Microagulhamento",
   "MMP Terapia Capilar",
   "Luz Pulsada",
-  "Protocolo Definição de Abdômen",
   "Outros",
 ];
 
 const TIME_SLOTS = Array.from({ length: 19 }, (_, i) => {
-  const hour = Math.floor(i / 2) + 9;
+  const hour = Math.floor(i / 2) + 13;
   const min = i % 2 === 0 ? "00" : "30";
+  if (hour > 22) return null;
   return `${String(hour).padStart(2, "0")}:${min}`;
-});
+}).filter(Boolean) as string[];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -79,7 +79,7 @@ const BookingSection = () => {
 
 Gostaria de agendar uma consulta para:
 
-Procedimento: ${procedureText}
+Tratamento: ${procedureText}
 
 Data: ${formattedDate}
 Horário: ${selectedTime}
@@ -87,7 +87,7 @@ Horário: ${selectedTime}
 Aguardo confirmação.`;
 
     const encoded = encodeURIComponent(message);
-    const url = `https://wa.me/5511994672773?text=${encoded}`;
+    const url = `https://wa.me/551131923965?text=${encoded}`;
 
     setTimeout(() => {
       window.open(url, "_blank", "noopener,noreferrer");
@@ -97,7 +97,6 @@ Aguardo confirmação.`;
 
   return (
     <section id="agendar" className="py-36 md:py-48 relative overflow-hidden">
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--nude)/0.3)] via-[hsl(var(--cream))] to-[hsl(var(--ivory))]"/>
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
@@ -259,7 +258,7 @@ Aguardo confirmação.`;
             <div className="flex items-center gap-2 mb-4">
               <Stethoscope className="w-4 h-4 text-muted-foreground" />
               <label className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground font-medium">
-                Procedimento de Interesse
+                Tratamento de Interesse
               </label>
             </div>
             <div className="relative">
@@ -272,7 +271,7 @@ Aguardo confirmação.`;
                   procedure ? "text-foreground" : "text-muted-foreground/50"
                 )}
               >
-                {procedure || "Selecione o procedimento"}
+                {procedure || "Selecione o tratamento"}
                 <ChevronDown className={cn("w-4 h-4 text-muted-foreground transition-transform duration-300", showProcedureDropdown && "rotate-180")} />
               </button>
               <AnimatePresence>
@@ -309,12 +308,11 @@ Aguardo confirmação.`;
             <AnimatePresence>
               {errors.procedure && (
                 <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="font-sans text-xs text-destructive mt-2">
-                  Selecione um procedimento.
+                  Selecione um tratamento.
                 </motion.p>
               )}
             </AnimatePresence>
 
-            {/* Other procedure input */}
             <AnimatePresence>
               {procedure === "Outros" && (
                 <motion.div
@@ -328,7 +326,7 @@ Aguardo confirmação.`;
                     value={otherProcedure}
                     onChange={(e) => setOtherProcedure(e.target.value)}
                     onBlur={() => setTouched(t => ({ ...t, other: true }))}
-                    placeholder="Descreva o procedimento desejado"
+                    placeholder="Descreva o tratamento desejado"
                     maxLength={200}
                     className={cn(
                       "w-full px-4 py-3 rounded-md bg-transparent border font-sans text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-ring/30 transition-all duration-300",
@@ -338,7 +336,7 @@ Aguardo confirmação.`;
                   <AnimatePresence>
                     {errors.other && (
                       <motion.p initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="font-sans text-xs text-destructive mt-2">
-                        Descreva o procedimento de interesse.
+                        Descreva o tratamento de interesse.
                       </motion.p>
                     )}
                   </AnimatePresence>
