@@ -556,7 +556,7 @@ const Index = () => {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagram @lcclinic"
+                  aria-label="Instagram @lucasmontanari.hof"
                   className="text-background/45 hover:text-background transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
