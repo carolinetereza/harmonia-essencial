@@ -7,9 +7,8 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-
-const WHATSAPP_URL = "https://wa.me/5511994672773?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
-const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hof/";
+const WHATSAPP_URL = "https://wa.me/551131923965?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
+const INSTAGRAM_URL = "https://www.instagram.com/lcclinic/";
 
 const InstagramIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 md:w-6 md:h-6">
@@ -59,7 +58,6 @@ const FloatingSocial = () => {
           onMouseEnter={() => setHoveredId(btn.id)}
           onMouseLeave={() => setHoveredId(null)}
         >
-          {/* Tooltip — desktop only */}
           <AnimatePresence>
             {hoveredId === btn.id && (
               <motion.span
