@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const WHATSAPP_URL = "https://wa.me/551131923965?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
 const EMAIL = "lcclinic@yahoo.com";
-const INSTAGRAM_URL = "https://www.instagram.com/lcclinic/";
+const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hof";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -556,7 +556,7 @@ const Index = () => {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagram @lcclinic"
+                  aria-label="Instagram @lucasmontanari.hof"
                   className="text-background/45 hover:text-background transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
