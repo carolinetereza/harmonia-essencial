@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/hero-bg.jpg";
 import fotonaBg from "@/assets/fotona-bg.jpg";
+import lucasProfile from "@/assets/lucas-profile.jpg";
 import BookingSection from "@/components/BookingSection";
 import logo from "@/assets/logo.png";
 import FloatingSocial from "@/components/FloatingSocial";
