@@ -176,33 +176,47 @@ const Index = () => {
 
       {/* Sobre — Bio */}
       <section className="py-36 md:py-48 bg-background">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-6">
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
-            className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
+            className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8 text-center"
           >
             Sobre
           </motion.p>
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             custom={1} variants={fadeUp}
-            className="font-serif text-foreground mb-16 leading-[1.12]"
+            className="font-serif text-foreground mb-16 leading-[1.12] text-center"
           >
             Lucas Montanari Cerqueira
           </motion.h2>
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-            variants={staggerContainer}
-            className="space-y-8 max-w-2xl mx-auto"
-          >
-            <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-              Lucas Montanari Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado.
-            </motion.p>
-            <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-              Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
-            </motion.p>
-          </motion.div>
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              className="flex-shrink-0"
+            >
+              <img
+                src={lucasProfile}
+                alt="Lucas Montanari Cerqueira"
+                className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
+                loading="lazy"
+              />
+            </motion.div>
+            <motion.div
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+              variants={staggerContainer}
+              className="space-y-8"
+            >
+              <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
+                Lucas Montanari Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado.
+              </motion.p>
+              <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
+                Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
+              </motion.p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
