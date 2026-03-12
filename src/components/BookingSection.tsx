@@ -24,12 +24,10 @@ const PROCEDURES = [
   "Outros",
 ];
 
-const TIME_SLOTS = Array.from({ length: 19 }, (_, i) => {
-  const hour = Math.floor(i / 2) + 13;
-  const min = i % 2 === 0 ? "00" : "30";
-  if (hour > 22) return null;
-  return `${String(hour).padStart(2, "0")}:${min}`;
-}).filter(Boolean) as string[];
+const TIME_SLOTS = Array.from({ length: 9 }, (_, i) => {
+  const hour = 13 + i;
+  return `${String(hour).padStart(2, "0")}:00`;
+});
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
