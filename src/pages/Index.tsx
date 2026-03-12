@@ -14,7 +14,8 @@ import { Mail, Phone, Instagram } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP_URL = "https://wa.me/551131923965?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
+const WHATSAPP_URL = "https://wa.me/message/WOXHA4R7VVDJD1";
+const WHATSAPP_MENTORIA_URL = "https://wa.me/message/WOXHA4R7VVDJD1?text=" + encodeURIComponent("Olá, gostaria de saber mais sobre as Mentorias 2026.");
 const EMAIL = "lcclinic@yahoo.com";
 const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hof";
 
