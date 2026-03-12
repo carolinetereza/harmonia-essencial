@@ -481,7 +481,7 @@ const Index = () => {
             <div className="space-y-3">
               <div className="flex justify-between font-sans text-[15px]">
                 <span className="text-muted-foreground">Segunda a Sexta</span>
-                <span className="text-foreground font-medium">13:00 às 22:00</span>
+                <span className="text-foreground font-medium">13:00 às 21:00</span>
               </div>
               <div className="flex justify-between font-sans text-[15px]">
                 <span className="text-muted-foreground">Sábado</span>
