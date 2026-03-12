@@ -646,6 +646,9 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-14 pt-8 border-t border-background/10 text-center">
+            <p className="font-sans text-[13px] text-background/35 mb-2">
+              Coren-SP 557197
+            </p>
             <p className="font-sans text-[13px] text-background/25">
               © {new Date().getFullYear()} LC Clinic — lucasmontanari.com.br — Todos os direitos reservados.
             </p>
