@@ -481,7 +481,7 @@ const Index = () => {
               rel="noopener noreferrer"
               className="inline-block px-14 py-4 text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
             >
-              Inscreva-se — Consulte valores
+              Quero minha vaga exclusiva
             </a>
           </motion.div>
         </div>
