@@ -387,41 +387,103 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Mentoria VIP */}
+      {/* Mentorias 2026 */}
       <section className="py-36 md:py-48 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <motion.p
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUp}
-            className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <motion.p
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUp}
+              className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
+            >
+              Educação
+            </motion.p>
+            <motion.h2
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+              custom={1} variants={fadeUp}
+              className="font-serif text-foreground mb-10 leading-[1.12]"
+            >
+              Mentorias 2026
+            </motion.h2>
+            <motion.p
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+              custom={2} variants={fadeUp}
+              className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75] max-w-2xl mx-auto"
+            >
+              Programa exclusivo de mentoria para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Acompanhamento direto de Lucas Montanari.
+            </motion.p>
+            <motion.p
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+              custom={3} variants={fadeUp}
+              className="font-sans text-[15px] font-medium text-primary mt-6 tracking-wide"
+            >
+              Turmas exclusivas com no máximo 3 alunos
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-8 mb-16"
           >
-            Educação
-          </motion.p>
-          <motion.h2
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
-            custom={1} variants={fadeUp}
-            className="font-serif text-foreground mb-10 leading-[1.12]"
-          >
-            Mentoria VIP
-          </motion.h2>
-          <motion.p
+            {[
+              {
+                month: "Abril",
+                dates: "24 e 25 de Abril",
+                title: "Bioestimuladores de Colágeno",
+                desc: "Técnicas avançadas de aplicação de bioestimuladores para rejuvenescimento e estímulo de colágeno.",
+              },
+              {
+                month: "Maio",
+                dates: "22 e 23 de Maio",
+                title: "Toxina e Preenchedores",
+                desc: "Protocolos de excelência em toxina botulínica e preenchedores para harmonização facial.",
+              },
+            ].map((mentoria, idx) => (
+              <motion.div
+                key={idx}
+                variants={fadeUp}
+                className="glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
+              >
+                <p className="font-sans text-xs tracking-[0.2em] uppercase text-primary/70 mb-3 font-medium">
+                  {mentoria.month} 2026
+                </p>
+                <h3 className="font-serif font-medium text-foreground mb-2 leading-tight text-lg md:text-xl">
+                  {mentoria.title}
+                </h3>
+                <p className="font-sans text-[14px] text-primary font-medium mb-4">
+                  {mentoria.dates}
+                </p>
+                <p className="font-sans text-[15px] text-muted-foreground leading-[1.65] mb-6">
+                  {mentoria.desc}
+                </p>
+                <div className="border-t border-border pt-5">
+                  <p className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
+                    Conteúdo Programático
+                  </p>
+                  <p className="font-sans text-[14px] text-muted-foreground italic">
+                    Em breve
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-            custom={2} variants={fadeUp}
-            className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75] max-w-2xl mx-auto mb-14"
+            custom={4} variants={fadeUp}
+            className="text-center"
           >
-            Programa exclusivo de mentoria para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Conteúdo personalizado com acompanhamento direto de Lucas Montanari.
-          </motion.p>
-          <motion.a
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-            custom={3} variants={fadeUp}
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-14 py-4 text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
-          >
-            Seja nosso aluno
-          </motion.a>
+            <a
+              href={WHATSAPP_MENTORIA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-14 py-4 text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
+            >
+              Inscreva-se — Consulte valores
+            </a>
+          </motion.div>
         </div>
       </section>
 
