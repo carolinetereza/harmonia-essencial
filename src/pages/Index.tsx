@@ -513,7 +513,7 @@ const Index = () => {
             className="grid md:grid-cols-2 gap-12 mb-20"
           >
             {[
-              { city: "São Paulo — SP", address: "Endereço a confirmar" },
+              { city: "São Paulo — SP", address: "Atendimento com hora marcada" },
               { city: "Rio de Janeiro — RJ", address: "Atendimento com hora marcada" },
             ].map((loc) => (
               <motion.div
