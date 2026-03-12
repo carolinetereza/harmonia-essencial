@@ -211,7 +211,7 @@ const Index = () => {
               className="space-y-8"
             >
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-                Lucas Montanari é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado.
+                Lucas Montanari é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado. Registro profissional: Coren-SP 557197.
               </motion.p>
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
                 Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
@@ -646,6 +646,9 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-14 pt-8 border-t border-background/10 text-center">
+            <p className="font-sans text-[13px] text-background/35 mb-2">
+              Coren-SP 557197
+            </p>
             <p className="font-sans text-[13px] text-background/25">
               © {new Date().getFullYear()} LC Clinic — lucasmontanari.com.br — Todos os direitos reservados.
             </p>
