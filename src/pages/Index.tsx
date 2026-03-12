@@ -190,7 +190,7 @@ const Index = () => {
             custom={1} variants={fadeUp}
             className="font-serif text-foreground mb-16 leading-[1.12] text-center"
           >
-            Lucas Montanari Cerqueira
+            Lucas Montanari
           </motion.h2>
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
             <motion.div
