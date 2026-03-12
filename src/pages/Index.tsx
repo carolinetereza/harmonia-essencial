@@ -200,7 +200,7 @@ const Index = () => {
             >
               <img
                 src={lucasProfile}
-                alt="Lucas Montanari Cerqueira"
+                alt="Lucas Montanari"
                 className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
                 loading="lazy"
               />
