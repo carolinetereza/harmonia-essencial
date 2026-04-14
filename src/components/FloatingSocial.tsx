@@ -7,7 +7,7 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const WHATSAPP_URL = "https://wa.me/551131923965?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta.";
+const WHATSAPP_URL = "https://wa.me/551131923965";
 const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hof";
 
 const InstagramIcon = () => (
@@ -33,14 +33,14 @@ const buttons = [
     href: INSTAGRAM_URL,
     label: "Ver Instagram",
     icon: <InstagramIcon />,
-    bg: "bg-[hsl(25,12%,40%)]",
+    bg: "bg-[hsl(0,0%,15%)]",
   },
   {
     id: "whatsapp",
     href: WHATSAPP_URL,
     label: "Agendar via WhatsApp",
     icon: <WhatsAppIcon />,
-    bg: "bg-[hsl(24,30%,55%)]",
+    bg: "bg-[hsl(21,71%,35%)]",
   },
 ];
 
@@ -79,7 +79,7 @@ const FloatingSocial = () => {
             aria-label={btn.label}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.96 }}
-            className={`${btn.bg} text-white w-11 h-11 md:w-13 md:h-13 rounded-full flex items-center justify-center shadow-[0_4px_20px_-4px_hsla(24,30%,50%,0.35)] hover:shadow-[0_6px_28px_-4px_hsla(24,30%,50%,0.5)] transition-shadow duration-250`}
+            className={`${btn.bg} text-white w-11 h-11 md:w-13 md:h-13 rounded-full flex items-center justify-center shadow-[0_4px_20px_-4px_hsla(21,71%,35%,0.35)] hover:shadow-[0_6px_28px_-4px_hsla(21,71%,35%,0.5)] transition-shadow duration-250`}
           >
             {btn.icon}
           </motion.a>

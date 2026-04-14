@@ -6,16 +6,17 @@ import heroBg from "@/assets/hero-bg.jpg";
 import fotonaBg from "@/assets/fotona-bg.jpg";
 import lucasProfile from "@/assets/lucas-profile.jpg";
 import BookingSection from "@/components/BookingSection";
-import logo from "@/assets/logo.png";
+import lcLogo from "@/assets/lc-clinica-logo.png";
 import FloatingSocial from "@/components/FloatingSocial";
 import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
-import { Mail, Phone, Instagram } from "lucide-react";
+import { Mail, Phone, Instagram, MapPin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP_URL = "https://wa.me/message/WOXHA4R7VVDJD1";
-const WHATSAPP_MENTORIA_URL = "https://wa.me/message/WOXHA4R7VVDJD1?text=" + encodeURIComponent("Olá, gostaria de saber mais sobre as Mentorias 2026.");
+const WHATSAPP_URL = "https://wa.me/551131923965";
+const WHATSAPP_MENTORIA_URL = "https://wa.me/551131923965?text=" + encodeURIComponent("Olá, gostaria de saber mais sobre as Mentorias 2026.");
+const WHATSAPP_PACIENTE_MODELO_URL = "https://wa.me/551131923965?text=" + encodeURIComponent("Olá, gostaria de informações sobre a vaga para paciente modelo.");
 const EMAIL = "lcclinic@yahoo.com";
 const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hof";
 
@@ -102,7 +103,7 @@ const Index = () => {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <img src={logo} alt="LC Clinic" className="h-8 w-auto" />
+          <img src={lcLogo} alt="LC Clinica" className="h-10 w-auto" />
           <a
             href="#agendar"
             className="px-6 md:px-8 py-2 md:py-2.5 text-[12px] md:text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
@@ -117,7 +118,7 @@ const Index = () => {
         <motion.div className="absolute inset-0" style={{ y: heroY }}>
           <img
             src={heroBg}
-            alt="LC Clinic"
+            alt="LC Clinica"
             className="w-full h-full object-cover scale-110"
             loading="eager"
           />
@@ -130,7 +131,7 @@ const Index = () => {
             animate="visible"
             variants={fadeUp}
             className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-4"
-            style={{ color: "hsl(24 30% 77%)" }}
+            style={{ color: "hsl(21 71% 55%)" }}
           >
             Founder Lucas Montanari
           </motion.p>
@@ -142,7 +143,7 @@ const Index = () => {
             variants={fadeUp}
             className="font-serif font-semibold leading-[1.08] tracking-[-0.5px] mb-6 text-white"
           >
-            LC Clinic
+            LC Clinica
           </motion.h1>
 
           <motion.p
@@ -228,12 +229,12 @@ const Index = () => {
         style={{ transform: "scaleX(0)" }}
       />
 
-      {/* Tecnologia Fotona */}
+      {/* Tecnologia de Ponta */}
       <section ref={fotonaRef} className="relative py-36 md:py-48 overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: fotonaY }}>
           <img
             src={fotonaBg}
-            alt="Tecnologia Fotona"
+            alt="Tecnologia de Ponta"
             className="w-full h-full object-cover scale-110"
             loading="lazy"
           />
@@ -245,7 +246,7 @@ const Index = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
             className="text-[13px] tracking-[0.25em] uppercase font-sans mb-8"
-            style={{ color: "hsl(24 30% 77%)" }}
+            style={{ color: "hsl(21 71% 55%)" }}
           >
             Tecnologia de Ponta
           </motion.p>
@@ -254,7 +255,7 @@ const Index = () => {
             custom={1} variants={fadeUp}
             className="font-serif text-white mb-10 leading-[1.12]"
           >
-            Tecnologia Fotona: Estímulo Profundo de Colágeno
+            Equipamentos de Ultima Geração
           </motion.h2>
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
@@ -270,18 +271,21 @@ const Index = () => {
             className="grid md:grid-cols-2 gap-6"
           >
             {[
-              "Estímulo avançado de colágeno e elastina",
-              "Redução progressiva de rugas e flacidez",
-              "Melhora da textura e firmeza da pele",
-              "Resultados progressivos e duradouros",
-            ].map((benefit, i) => (
+              { name: "Fotona", desc: "Estímulo profundo de colágeno e elastina com laser de alta performance" },
+              { name: "Laser CO2", desc: "Rejuvenescimento e resurfacing cutâneo com precisão fracionada" },
+              { name: "Etherea", desc: "Plataforma multifuncional para tratamentos de pele avançados" },
+              { name: "Lavieeen", desc: "Tecnologia laser para manchas, textura e revitalização da pele" },
+            ].map((item, i) => (
               <motion.div key={i} variants={fadeUp}
                 className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/[0.08] transition-colors duration-300"
               >
-                <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-nude to-transparent flex-shrink-0" />
-                <p className="font-sans text-[15px] md:text-base text-white/85 leading-[1.65]">
-                  {benefit}
-                </p>
+                <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-[hsl(21,71%,55%)] to-transparent flex-shrink-0" />
+                <div>
+                  <h3 className="font-serif font-medium text-white mb-1 text-lg">{item.name}</h3>
+                  <p className="font-sans text-[15px] md:text-base text-white/75 leading-[1.65]">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -336,8 +340,48 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Paciente Modelo */}
+      <section className="py-20 md:py-28 bg-cream">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+            className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
+          >
+            Oportunidade
+          </motion.p>
+          <motion.h2
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+            custom={1} variants={fadeUp}
+            className="font-serif text-foreground mb-6 leading-[1.12]"
+          >
+            Vaga para Paciente Modelo
+          </motion.h2>
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+            custom={2} variants={fadeUp}
+            className="font-sans text-[17px] text-muted-foreground leading-[1.75] mb-10 max-w-xl mx-auto"
+          >
+            Participe dos nossos treinamentos práticos como paciente modelo. Conteúdo programático em breve.
+          </motion.p>
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+            custom={3} variants={fadeUp}
+          >
+            <a
+              href={WHATSAPP_PACIENTE_MODELO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-14 py-4 text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
+            >
+              Quero ser paciente modelo
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Experiência do Paciente */}
-      <section className="py-36 md:py-48 bg-cream">
+      <section className="py-36 md:py-48 bg-background">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-24">
             <motion.p
@@ -388,7 +432,7 @@ const Index = () => {
       </section>
 
       {/* Mentorias 2026 */}
-      <section className="py-36 md:py-48 bg-background relative overflow-hidden">
+      <section className="py-36 md:py-48 bg-cream relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           <div className="text-center mb-20">
@@ -416,7 +460,7 @@ const Index = () => {
             <motion.p
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
               custom={3} variants={fadeUp}
-              className="font-sans text-[15px] font-medium text-primary mt-6 tracking-wide"
+              className="font-sans text-[15px] font-medium text-foreground mt-6 tracking-wide"
             >
               Turmas exclusivas com no máximo 3 alunos
             </motion.p>
@@ -425,7 +469,7 @@ const Index = () => {
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 gap-8 mb-16"
+            className="grid md:grid-cols-2 gap-8 mb-12"
           >
             {[
               {
@@ -446,13 +490,13 @@ const Index = () => {
                 variants={fadeUp}
                 className="glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
               >
-                <p className="font-sans text-xs tracking-[0.2em] uppercase text-primary/70 mb-3 font-medium">
+                <p className="font-sans text-xs tracking-[0.2em] uppercase text-secondary mb-3 font-medium">
                   {mentoria.month} 2026
                 </p>
                 <h3 className="font-serif font-medium text-foreground mb-2 leading-tight text-lg md:text-xl">
                   {mentoria.title}
                 </h3>
-                <p className="font-sans text-[14px] text-primary font-medium mb-4">
+                <p className="font-sans text-[14px] text-foreground font-medium mb-4">
                   {mentoria.dates}
                 </p>
                 <p className="font-sans text-[15px] text-muted-foreground leading-[1.65] mb-6">
@@ -468,6 +512,24 @@ const Index = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Localização das Mentorias */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp}
+            className="glass-card rounded-sm p-6 md:p-8 mb-12 flex items-start gap-4 max-w-lg mx-auto"
+          >
+            <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+            <div>
+              <h4 className="font-serif font-medium text-foreground mb-2 text-base">Local das Mentorias</h4>
+              <p className="font-sans text-[15px] text-muted-foreground leading-[1.65]">
+                São Paulo — SP
+              </p>
+              <p className="font-sans text-[13px] text-muted-foreground/70 mt-1">
+                Endereço informado após confirmação da inscrição
+              </p>
+            </div>
           </motion.div>
 
           <motion.div
@@ -488,7 +550,7 @@ const Index = () => {
       </section>
 
       {/* Atendimento — Localidades e Horários */}
-      <section className="py-36 md:py-48 bg-cream">
+      <section className="py-36 md:py-48 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center">
             <motion.p
@@ -513,20 +575,24 @@ const Index = () => {
             className="grid md:grid-cols-2 gap-12 mb-20"
           >
             {[
-              { city: "São Paulo — SP", address: "Atendimento com hora marcada" },
-              { city: "Rio de Janeiro — RJ", address: "Atendimento com hora marcada" },
+              { city: "São Paulo — SP", address: "Atendimento com hora marcada", phone: "(11) 3192-3965" },
+              { city: "Rio de Janeiro — RJ", address: "Atendimento com hora marcada", phone: "(11) 3192-3965" },
             ].map((loc) => (
               <motion.div
                 key={loc.city}
                 variants={fadeUp}
                 className="text-center py-10 border-t border-border"
               >
+                <MapPin className="w-5 h-5 text-secondary mx-auto mb-4" />
                 <h3 className="font-serif font-medium text-foreground mb-3">
                   {loc.city}
                 </h3>
                 <p className="font-sans text-[15px] text-muted-foreground leading-[1.65]">
                   {loc.address}
                 </p>
+                <a href={`tel:+${loc.phone.replace(/\D/g, '')}`} className="font-sans text-[14px] text-secondary hover:text-foreground transition-colors mt-2 inline-block">
+                  {loc.phone}
+                </a>
               </motion.div>
             ))}
           </motion.div>
@@ -575,7 +641,6 @@ const Index = () => {
             Agende sua consulta privada e descubra o protocolo ideal para os seus objetivos.
           </motion.p>
 
-          {/* Dual CTA — WhatsApp + Email */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             custom={2} variants={fadeUp}
@@ -606,7 +671,7 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex flex-col items-center md:items-start gap-3">
-              <img src={logo} alt="LC Clinic" className="h-10 w-auto invert" />
+              <img src={lcLogo} alt="LC Clinica" className="h-10 w-auto invert" />
               <p className="font-sans text-[13px] text-background/45">
                 Harmonização Facial e Corporal
               </p>
@@ -640,7 +705,7 @@ const Index = () => {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <span className="font-sans text-[12px] text-background/35">
-                  @lcclinic — em construção
+                  @lcclinica
                 </span>
               </div>
             </div>
@@ -650,7 +715,7 @@ const Index = () => {
               Coren-SP 557197
             </p>
             <p className="font-sans text-[13px] text-background/25">
-              © {new Date().getFullYear()} LC Clinic — lucasmontanari.com.br — Todos os direitos reservados.
+              © {new Date().getFullYear()} LC Clinica — lcclinica.com.br — Todos os direitos reservados.
             </p>
           </div>
         </div>

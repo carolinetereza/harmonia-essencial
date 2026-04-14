@@ -17,6 +17,9 @@ const PROCEDURES = [
   "Harmonização Glútea",
   "Harmonização Corporal",
   "Laser Fotona",
+  "Laser CO2",
+  "Etherea",
+  "Lavieeen",
   "Peeling Químico",
   "Microagulhamento",
   "MMP Terapia Capilar",
@@ -85,7 +88,7 @@ Horário: ${selectedTime}
 Aguardo confirmação.`;
 
     const encoded = encodeURIComponent(message);
-    const url = `https://wa.me/message/WOXHA4R7VVDJD1?text=${encoded}`;
+    const url = `https://wa.me/551131923965?text=${encoded}`;
 
     setTimeout(() => {
       window.open(url, "_blank", "noopener,noreferrer");
