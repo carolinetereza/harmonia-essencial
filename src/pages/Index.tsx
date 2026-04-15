@@ -39,48 +39,223 @@ const Index = () => {
   const fotonaRef = useRef<HTMLDivElement>(null);
   const separatorRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const sobreRef = useRef<HTMLElement>(null);
+  const tratamentosRef = useRef<HTMLElement>(null);
+  const jornadaRef = useRef<HTMLElement>(null);
+  const mentoriasRef = useRef<HTMLElement>(null);
+  const atendimentoRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (separatorRef.current) {
-      gsap.fromTo(
-        separatorRef.current,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.2,
-          ease: "power3.inOut",
-          scrollTrigger: {
-            trigger: separatorRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
-
-    if (ctaRef.current) {
-      const heading = ctaRef.current.querySelector("h2");
-      if (heading) {
+    const ctx = gsap.context(() => {
+      // Separator line reveal
+      if (separatorRef.current) {
         gsap.fromTo(
-          heading,
-          { letterSpacing: "0.05em" },
+          separatorRef.current,
+          { scaleX: 0 },
           {
-            letterSpacing: "-0.01em",
-            ease: "none",
+            scaleX: 1,
+            duration: 1.2,
+            ease: "power3.inOut",
             scrollTrigger: {
-              trigger: ctaRef.current,
-              start: "top bottom",
-              end: "top center",
-              scrub: 1,
+              trigger: separatorRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
             },
           }
         );
       }
-    }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+      // CTA heading letter-spacing scrub
+      if (ctaRef.current) {
+        const heading = ctaRef.current.querySelector("h2");
+        if (heading) {
+          gsap.fromTo(
+            heading,
+            { letterSpacing: "0.05em" },
+            {
+              letterSpacing: "-0.01em",
+              ease: "none",
+              scrollTrigger: {
+                trigger: ctaRef.current,
+                start: "top bottom",
+                end: "top center",
+                scrub: 1,
+              },
+            }
+          );
+        }
+      }
+
+      // Sobre section — image clip-path reveal + text slide
+      if (sobreRef.current) {
+        const img = sobreRef.current.querySelector("img");
+        const textBlock = sobreRef.current.querySelector(".sobre-text");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { clipPath: "inset(0 100% 0 0)", opacity: 0 },
+            {
+              clipPath: "inset(0 0% 0 0)",
+              opacity: 1,
+              duration: 1.4,
+              ease: "power4.inOut",
+              scrollTrigger: {
+                trigger: img,
+                start: "top 80%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+        if (textBlock) {
+          gsap.fromTo(
+            textBlock,
+            { x: 60, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: textBlock,
+                start: "top 80%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+      }
+
+      // Tratamentos — cards stagger from bottom with rotation
+      if (tratamentosRef.current) {
+        const cards = tratamentosRef.current.querySelectorAll(".treatment-card");
+        gsap.fromTo(
+          cards,
+          { y: 80, opacity: 0, rotateX: 8 },
+          {
+            y: 0,
+            opacity: 1,
+            rotateX: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: tratamentosRef.current,
+              start: "top 75%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Jornada steps — horizontal slide-in with counter
+      if (jornadaRef.current) {
+        const steps = jornadaRef.current.querySelectorAll(".jornada-step");
+        steps.forEach((step, i) => {
+          gsap.fromTo(
+            step,
+            { x: i % 2 === 0 ? -50 : 50, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.9,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: step,
+                start: "top 85%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        });
+      }
+
+      // Mentorias — scale up cards
+      if (mentoriasRef.current) {
+        const mentoriaCards = mentoriasRef.current.querySelectorAll(".mentoria-card");
+        gsap.fromTo(
+          mentoriaCards,
+          { scale: 0.9, opacity: 0, y: 40 },
+          {
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "back.out(1.4)",
+            scrollTrigger: {
+              trigger: mentoriasRef.current,
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Atendimento — location cards fade + slide up
+      if (atendimentoRef.current) {
+        const locs = atendimentoRef.current.querySelectorAll(".location-card");
+        gsap.fromTo(
+          locs,
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: atendimentoRef.current,
+              start: "top 75%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Footer — slide up reveal
+      if (footerRef.current) {
+        gsap.fromTo(
+          footerRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Technology section — equipment cards horizontal stagger
+      if (fotonaRef.current) {
+        const techCards = fotonaRef.current.querySelectorAll(".tech-card");
+        gsap.fromTo(
+          techCards,
+          { x: -40, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: fotonaRef.current,
+              start: "top 65%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
+
+    return () => ctx.revert();
   }, []);
 
   const { scrollYProgress: heroScrollProgress } = useScroll({
