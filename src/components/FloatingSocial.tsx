@@ -40,7 +40,7 @@ const buttons = [
     href: WHATSAPP_URL,
     label: "Agendar via WhatsApp",
     icon: <WhatsAppIcon />,
-    bg: "bg-[hsl(21,71%,35%)]",
+    bg: "bg-foreground",
   },
 ];
 

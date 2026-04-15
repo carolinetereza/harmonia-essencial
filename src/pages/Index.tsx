@@ -131,7 +131,7 @@ const Index = () => {
             animate="visible"
             variants={fadeUp}
             className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-4"
-            style={{ color: "hsl(21 71% 55%)" }}
+            style={{ color: "hsl(0 0% 85%)" }}
           >
             Founder Lucas Montanari
           </motion.p>
@@ -246,7 +246,7 @@ const Index = () => {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             variants={fadeUp}
             className="text-[13px] tracking-[0.25em] uppercase font-sans mb-8"
-            style={{ color: "hsl(21 71% 55%)" }}
+            style={{ color: "hsl(0 0% 85%)" }}
           >
             Tecnologia de Ponta
           </motion.p>
@@ -279,7 +279,7 @@ const Index = () => {
               <motion.div key={i} variants={fadeUp}
                 className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/[0.08] transition-colors duration-300"
               >
-                <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-[hsl(21,71%,55%)] to-transparent flex-shrink-0" />
+                <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-white to-transparent flex-shrink-0" />
                 <div>
                   <h3 className="font-serif font-medium text-white mb-1 text-lg">{item.name}</h3>
                   <p className="font-sans text-[15px] md:text-base text-white/75 leading-[1.65]">
