@@ -473,14 +473,14 @@ const Index = () => {
           >
             {[
               {
-                month: "Abril",
-                dates: "24 e 25 de Abril",
+                month: "Maio",
+                dates: "22 e 23 de Maio",
                 title: "Bioestimuladores de Colágeno",
                 desc: "Técnicas avançadas de aplicação de bioestimuladores para rejuvenescimento e estímulo de colágeno.",
               },
               {
-                month: "Maio",
-                dates: "22 e 23 de Maio",
+                month: "Junho",
+                dates: "26 e 27 de Junho",
                 title: "Toxina e Preenchedores",
                 desc: "Protocolos de excelência em toxina botulínica e preenchedores para harmonização facial.",
               },
