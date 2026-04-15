@@ -39,48 +39,223 @@ const Index = () => {
   const fotonaRef = useRef<HTMLDivElement>(null);
   const separatorRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const sobreRef = useRef<HTMLElement>(null);
+  const tratamentosRef = useRef<HTMLElement>(null);
+  const jornadaRef = useRef<HTMLElement>(null);
+  const mentoriasRef = useRef<HTMLElement>(null);
+  const atendimentoRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (separatorRef.current) {
-      gsap.fromTo(
-        separatorRef.current,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.2,
-          ease: "power3.inOut",
-          scrollTrigger: {
-            trigger: separatorRef.current,
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
-
-    if (ctaRef.current) {
-      const heading = ctaRef.current.querySelector("h2");
-      if (heading) {
+    const ctx = gsap.context(() => {
+      // Separator line reveal
+      if (separatorRef.current) {
         gsap.fromTo(
-          heading,
-          { letterSpacing: "0.05em" },
+          separatorRef.current,
+          { scaleX: 0 },
           {
-            letterSpacing: "-0.01em",
-            ease: "none",
+            scaleX: 1,
+            duration: 1.2,
+            ease: "power3.inOut",
             scrollTrigger: {
-              trigger: ctaRef.current,
-              start: "top bottom",
-              end: "top center",
-              scrub: 1,
+              trigger: separatorRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
             },
           }
         );
       }
-    }
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+      // CTA heading letter-spacing scrub
+      if (ctaRef.current) {
+        const heading = ctaRef.current.querySelector("h2");
+        if (heading) {
+          gsap.fromTo(
+            heading,
+            { letterSpacing: "0.05em" },
+            {
+              letterSpacing: "-0.01em",
+              ease: "none",
+              scrollTrigger: {
+                trigger: ctaRef.current,
+                start: "top bottom",
+                end: "top center",
+                scrub: 1,
+              },
+            }
+          );
+        }
+      }
+
+      // Sobre section — image clip-path reveal + text slide
+      if (sobreRef.current) {
+        const img = sobreRef.current.querySelector("img");
+        const textBlock = sobreRef.current.querySelector(".sobre-text");
+        if (img) {
+          gsap.fromTo(
+            img,
+            { clipPath: "inset(0 100% 0 0)", opacity: 0 },
+            {
+              clipPath: "inset(0 0% 0 0)",
+              opacity: 1,
+              duration: 1.4,
+              ease: "power4.inOut",
+              scrollTrigger: {
+                trigger: img,
+                start: "top 80%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+        if (textBlock) {
+          gsap.fromTo(
+            textBlock,
+            { x: 60, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: textBlock,
+                start: "top 80%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
+      }
+
+      // Tratamentos — cards stagger from bottom with rotation
+      if (tratamentosRef.current) {
+        const cards = tratamentosRef.current.querySelectorAll(".treatment-card");
+        gsap.fromTo(
+          cards,
+          { y: 80, opacity: 0, rotateX: 8 },
+          {
+            y: 0,
+            opacity: 1,
+            rotateX: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: tratamentosRef.current,
+              start: "top 75%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Jornada steps — horizontal slide-in with counter
+      if (jornadaRef.current) {
+        const steps = jornadaRef.current.querySelectorAll(".jornada-step");
+        steps.forEach((step, i) => {
+          gsap.fromTo(
+            step,
+            { x: i % 2 === 0 ? -50 : 50, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.9,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: step,
+                start: "top 85%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        });
+      }
+
+      // Mentorias — scale up cards
+      if (mentoriasRef.current) {
+        const mentoriaCards = mentoriasRef.current.querySelectorAll(".mentoria-card");
+        gsap.fromTo(
+          mentoriaCards,
+          { scale: 0.9, opacity: 0, y: 40 },
+          {
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "back.out(1.4)",
+            scrollTrigger: {
+              trigger: mentoriasRef.current,
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Atendimento — location cards fade + slide up
+      if (atendimentoRef.current) {
+        const locs = atendimentoRef.current.querySelectorAll(".location-card");
+        gsap.fromTo(
+          locs,
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: atendimentoRef.current,
+              start: "top 75%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Footer — slide up reveal
+      if (footerRef.current) {
+        gsap.fromTo(
+          footerRef.current,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: footerRef.current,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Technology section — equipment cards horizontal stagger
+      if (fotonaRef.current) {
+        const techCards = fotonaRef.current.querySelectorAll(".tech-card");
+        gsap.fromTo(
+          techCards,
+          { x: -40, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: fotonaRef.current,
+              start: "top 65%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    });
+
+    return () => ctx.revert();
   }, []);
 
   const { scrollYProgress: heroScrollProgress } = useScroll({
@@ -176,8 +351,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Sobre — Bio */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={sobreRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-5xl mx-auto px-6">
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
@@ -209,7 +383,7 @@ const Index = () => {
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
               variants={staggerContainer}
-              className="space-y-8"
+              className="sobre-text space-y-8"
             >
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
                 Lucas Montanari é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado. Registro profissional: Coren-SP 557197.
@@ -277,7 +451,7 @@ const Index = () => {
               { name: "Lavieeen", desc: "Tecnologia laser para manchas, textura e revitalização da pele" },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp}
-                className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/[0.08] transition-colors duration-300"
+                className="tech-card flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/[0.08] transition-colors duration-300"
               >
                 <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-white to-transparent flex-shrink-0" />
                 <div>
@@ -293,7 +467,7 @@ const Index = () => {
       </section>
 
       {/* Tratamentos */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={tratamentosRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
@@ -325,7 +499,7 @@ const Index = () => {
             ].map((item, idx) => (
               <Card3D key={idx} className="h-full">
                 <motion.div variants={fadeUp}
-                  className="glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300 flex flex-col"
+                  className="treatment-card glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300 flex flex-col"
                 >
                   <h3 className="font-serif font-medium text-foreground mb-4 leading-tight">
                     {item.title}
@@ -381,7 +555,7 @@ const Index = () => {
       </section>
 
       {/* Experiência do Paciente */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={jornadaRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-24">
             <motion.p
@@ -414,7 +588,7 @@ const Index = () => {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="text-center md:text-left"
+                className="jornada-step text-center md:text-left"
               >
                 <p className="font-serif text-4xl md:text-5xl font-light text-secondary/30 mb-5">
                   {item.step}
@@ -432,7 +606,7 @@ const Index = () => {
       </section>
 
       {/* Mentorias 2026 */}
-      <section className="py-36 md:py-48 bg-cream relative overflow-hidden">
+      <section ref={mentoriasRef} className="py-36 md:py-48 bg-cream relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           <div className="text-center mb-20">
@@ -488,7 +662,7 @@ const Index = () => {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
+                className="mentoria-card glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
               >
                 <p className="font-sans text-xs tracking-[0.2em] uppercase text-secondary mb-3 font-medium">
                   {mentoria.month} 2026
@@ -550,7 +724,7 @@ const Index = () => {
       </section>
 
       {/* Atendimento — Localidades e Horários */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={atendimentoRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center">
             <motion.p
@@ -581,7 +755,7 @@ const Index = () => {
               <motion.div
                 key={loc.city}
                 variants={fadeUp}
-                className="text-center py-10 border-t border-border"
+                className="location-card text-center py-10 border-t border-border"
               >
                 <MapPin className="w-5 h-5 text-secondary mx-auto mb-4" />
                 <h3 className="font-serif font-medium text-foreground mb-3">
@@ -667,7 +841,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 bg-foreground text-background">
+      <footer ref={footerRef} className="py-20 bg-foreground text-background">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex flex-col items-center md:items-start gap-3">
