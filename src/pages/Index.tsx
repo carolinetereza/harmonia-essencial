@@ -383,7 +383,7 @@ const Index = () => {
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
               variants={staggerContainer}
-              className="space-y-8"
+              className="sobre-text space-y-8"
             >
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
                 Lucas Montanari é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado. Registro profissional: Coren-SP 557197.
@@ -451,7 +451,7 @@ const Index = () => {
               { name: "Lavieeen", desc: "Tecnologia laser para manchas, textura e revitalização da pele" },
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp}
-                className="flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/[0.08] transition-colors duration-300"
+                className="tech-card flex items-start gap-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-sm hover:bg-white/[0.08] transition-colors duration-300"
               >
                 <div className="w-1 h-full min-h-[24px] bg-gradient-to-b from-white to-transparent flex-shrink-0" />
                 <div>
@@ -467,7 +467,7 @@ const Index = () => {
       </section>
 
       {/* Tratamentos */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={tratamentosRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
@@ -499,7 +499,7 @@ const Index = () => {
             ].map((item, idx) => (
               <Card3D key={idx} className="h-full">
                 <motion.div variants={fadeUp}
-                  className="glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300 flex flex-col"
+                  className="treatment-card glass-card p-8 md:p-10 rounded-sm h-full hover:-translate-y-1 transition-transform duration-300 flex flex-col"
                 >
                   <h3 className="font-serif font-medium text-foreground mb-4 leading-tight">
                     {item.title}
@@ -555,7 +555,7 @@ const Index = () => {
       </section>
 
       {/* Experiência do Paciente */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={jornadaRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-24">
             <motion.p
@@ -588,7 +588,7 @@ const Index = () => {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="text-center md:text-left"
+                className="jornada-step text-center md:text-left"
               >
                 <p className="font-serif text-4xl md:text-5xl font-light text-secondary/30 mb-5">
                   {item.step}
@@ -606,7 +606,7 @@ const Index = () => {
       </section>
 
       {/* Mentorias 2026 */}
-      <section className="py-36 md:py-48 bg-cream relative overflow-hidden">
+      <section ref={mentoriasRef} className="py-36 md:py-48 bg-cream relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent" />
         <div className="relative z-10 max-w-5xl mx-auto px-6">
           <div className="text-center mb-20">
@@ -662,7 +662,7 @@ const Index = () => {
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
+                className="mentoria-card glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
               >
                 <p className="font-sans text-xs tracking-[0.2em] uppercase text-secondary mb-3 font-medium">
                   {mentoria.month} 2026
@@ -724,7 +724,7 @@ const Index = () => {
       </section>
 
       {/* Atendimento — Localidades e Horários */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={atendimentoRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center">
             <motion.p
@@ -755,7 +755,7 @@ const Index = () => {
               <motion.div
                 key={loc.city}
                 variants={fadeUp}
-                className="text-center py-10 border-t border-border"
+                className="location-card text-center py-10 border-t border-border"
               >
                 <MapPin className="w-5 h-5 text-secondary mx-auto mb-4" />
                 <h3 className="font-serif font-medium text-foreground mb-3">
@@ -841,7 +841,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 bg-foreground text-background">
+      <footer ref={footerRef} className="py-20 bg-foreground text-background">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex flex-col items-center md:items-start gap-3">
