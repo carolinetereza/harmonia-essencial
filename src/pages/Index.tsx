@@ -351,8 +351,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Sobre — Bio */}
-      <section className="py-36 md:py-48 bg-background">
+      <section ref={sobreRef} className="py-36 md:py-48 bg-background">
         <div className="max-w-5xl mx-auto px-6">
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
