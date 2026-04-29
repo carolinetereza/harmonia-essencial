@@ -615,21 +615,21 @@ const Index = () => {
               variants={fadeUp}
               className="text-[13px] tracking-[0.25em] uppercase font-sans text-muted-foreground mb-8"
             >
-              Educação
+              Corpo Docente
             </motion.p>
             <motion.h2
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
               custom={1} variants={fadeUp}
               className="font-serif text-foreground mb-10 leading-[1.12]"
             >
-              Mentorias 2026
+              Cursos e Mentorias 2026
             </motion.h2>
             <motion.p
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
               custom={2} variants={fadeUp}
               className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75] max-w-2xl mx-auto"
             >
-              Programa exclusivo de mentoria para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Acompanhamento direto de Lucas Montanari.
+              Programa exclusivo de cursos e mentorias para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Direção de Lucas Montanari Cerqueira.
             </motion.p>
             <motion.p
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
@@ -638,25 +638,50 @@ const Index = () => {
             >
               Turmas exclusivas com no máximo 3 alunos
             </motion.p>
+            <motion.p
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+              custom={4} variants={fadeUp}
+              className="font-sans text-[14px] italic text-muted-foreground/80 mt-3 max-w-2xl mx-auto"
+            >
+              Conteúdos programáticos serão disponibilizados em breve pelo Dr. Felipe Ajala.
+            </motion.p>
           </div>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 gap-8 mb-12"
+            className="grid md:grid-cols-3 gap-8 mb-12"
           >
             {[
               {
+                tag: "Curso · Maio",
                 month: "Maio",
-                dates: "22 e 23 de Maio",
-                title: "Bioestimuladores de Colágeno",
-                desc: "Técnicas avançadas de aplicação de bioestimuladores para rejuvenescimento e estímulo de colágeno.",
+                dates: "24 e 25 de Maio (sábado e domingo)",
+                title: "Biomestimuladores de Colágeno Facial",
+                desc: "Biomestimuladores facial, toxina e preenchimento. Carga horária: 12 horas. Teoria (maio e junho).",
+                instructor: "Dr. Felipe Ajala — CRM 280980 | CRBM 20230",
+                inscricao: "R$ 500 (via PIX)",
+                investimento: "R$ 3.800 em até 10x sem juros",
               },
               {
+                tag: "Curso · Junho",
                 month: "Junho",
-                dates: "26 e 27 de Junho",
+                dates: "27 e 28 de Junho (sábado e domingo)",
                 title: "Toxina e Preenchedores",
-                desc: "Protocolos de excelência em toxina botulínica e preenchedores para harmonização facial.",
+                desc: "Toxina botulínica e preenchedores para harmonização facial. Carga horária: 12 horas. Teoria (maio e junho).",
+                instructor: "Dr. Felipe Ajala — CRM 280980 | CRBM 20230",
+                inscricao: "R$ 500 (via PIX)",
+                investimento: "R$ 3.700 em até 10x sem juros",
+              },
+              {
+                tag: "Mentoria · Julho",
+                month: "Julho",
+                dates: "25 de Julho (sábado)",
+                title: "Complicações por Preenchedores",
+                desc: "Mentoria supervisionada. Carga horária: 6 horas. Coordenação: Lucas Montanari Cerqueira.",
+                instructor: "Dr. Cláudio Fontes — Cirurgião Dentista | CRO RJ 31865",
+                inscricao: "R$ 500 (via PIX)",
+                investimento: "R$ 2.700",
               },
             ].map((mentoria, idx) => (
               <motion.div
@@ -665,7 +690,7 @@ const Index = () => {
                 className="mentoria-card glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
               >
                 <p className="font-sans text-xs tracking-[0.2em] uppercase text-secondary mb-3 font-medium">
-                  {mentoria.month} 2026
+                  {mentoria.tag} 2026
                 </p>
                 <h3 className="font-serif font-medium text-foreground mb-2 leading-tight text-lg md:text-xl">
                   {mentoria.title}
@@ -676,12 +701,38 @@ const Index = () => {
                 <p className="font-sans text-[15px] text-muted-foreground leading-[1.65] mb-6">
                   {mentoria.desc}
                 </p>
-                <div className="border-t border-border pt-5">
-                  <p className="font-sans text-xs tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
-                    Conteúdo Programático
+                <div className="border-t border-border pt-5 space-y-3">
+                  <div>
+                    <p className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
+                      Ministrante
+                    </p>
+                    <p className="font-sans text-[14px] text-foreground">
+                      {mentoria.instructor}
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:gap-6 gap-2">
+                    <div>
+                      <p className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
+                        Inscrição
+                      </p>
+                      <p className="font-sans text-[14px] text-foreground font-medium">
+                        {mentoria.inscricao}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
+                        Investimento
+                      </p>
+                      <p className="font-sans text-[14px] text-foreground font-medium">
+                        {mentoria.investimento}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="font-sans text-[12px] tracking-[0.1em] uppercase text-muted-foreground/60 pt-2">
+                    Direção: Lucas Montanari Cerqueira
                   </p>
-                  <p className="font-sans text-[14px] text-muted-foreground italic">
-                    Em breve
+                  <p className="font-sans text-[13px] text-muted-foreground italic">
+                    Conteúdo programático em breve.
                   </p>
                 </div>
               </motion.div>
@@ -696,14 +747,67 @@ const Index = () => {
           >
             <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-serif font-medium text-foreground mb-2 text-base">Local das Mentorias</h4>
+              <h4 className="font-serif font-medium text-foreground mb-2 text-base">Local dos Cursos e Mentorias</h4>
               <p className="font-sans text-[15px] text-muted-foreground leading-[1.65]">
-                São Paulo — SP
+                Rua Carlos Sampaio, 304 — cj 91, Bela Vista, São Paulo — SP
               </p>
               <p className="font-sans text-[13px] text-muted-foreground/70 mt-1">
-                Endereço informado após confirmação da inscrição
+                Próximo à Avenida Paulista
               </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Rua+Carlos+Sampaio+304+Bela+Vista+S%C3%A3o+Paulo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-[13px] text-secondary hover:text-foreground transition-colors mt-2 inline-block"
+              >
+                Ver no mapa →
+              </a>
             </div>
+          </motion.div>
+
+          {/* Corpo Docente */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp}
+            className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-3xl mx-auto"
+          >
+            <h4 className="font-serif font-medium text-foreground mb-6 text-lg text-center">Corpo Docente</h4>
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div>
+                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Teoria e Prática</p>
+                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Felipe Ajala</p>
+                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">Médico CRM 280980 | Biomédico CRBM 20230</p>
+              </div>
+              <div>
+                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Mentoria Supervisionada</p>
+                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Cláudio Fontes</p>
+                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">Cirurgião Dentista | CRO RJ 31865</p>
+              </div>
+              <div>
+                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Direção</p>
+                <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Montanari Cerqueira</p>
+                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">Enfermeiro | Biomédico | COREN 557197 — Diretor de educação e mentorias</p>
+              </div>
+            </div>
+            <p className="font-sans text-[13px] text-muted-foreground italic text-center border-t border-border pt-5">
+              Mentoria supervisionada por profissionais qualificados conforme listado acima.
+            </p>
+          </motion.div>
+
+          {/* Certificação */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
+            variants={fadeUp}
+            className="glass-card rounded-sm p-6 md:p-8 mb-12 max-w-lg mx-auto text-center"
+          >
+            <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-3">Certificação</p>
+            <h4 className="font-serif font-medium text-foreground mb-3 text-base">Certificado de 12 horas</h4>
+            <p className="font-sans text-[14px] text-muted-foreground leading-[1.65]">
+              Emitido após conclusão e assinado por Dr. Felipe Ajala (Médico).
+            </p>
+            <p className="font-sans text-[13px] text-muted-foreground/70 mt-2">
+              Direção: Lucas Montanari Cerqueira — LC Clínica
+            </p>
           </motion.div>
 
           <motion.div
