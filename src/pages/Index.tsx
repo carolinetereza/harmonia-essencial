@@ -1016,10 +1016,10 @@ const Index = () => {
           </div>
           <div className="mt-14 pt-8 border-t border-background/10 text-center">
             <p className="font-sans text-[13px] text-background/35 mb-2">
-              Coren-SP 557197
+              Lucas Montanari Cerqueira — Coren-SP 557197 | Biomédico
             </p>
             <p className="font-sans text-[13px] text-background/25">
-              © {new Date().getFullYear()} LC Clinica — lcclinica.com.br — Todos os direitos reservados.
+              © {new Date().getFullYear()} LC Clínica — lcclinica.com.br — Todos os direitos reservados.
             </p>
           </div>
         </div>
