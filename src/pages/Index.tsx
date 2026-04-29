@@ -308,7 +308,7 @@ const Index = () => {
             className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-4"
             style={{ color: "hsl(0 0% 85%)" }}
           >
-            Founder Lucas Montanari
+            Founder Lucas Montanari Cerqueira
           </motion.p>
 
           <motion.h1
