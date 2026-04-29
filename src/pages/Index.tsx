@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -45,6 +45,17 @@ const Index = () => {
   const mentoriasRef = useRef<HTMLElement>(null);
   const atendimentoRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
+  const [isOverHero, setIsOverHero] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = heroRef.current?.offsetHeight ?? window.innerHeight;
+      setIsOverHero(window.scrollY < heroHeight - 80);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
