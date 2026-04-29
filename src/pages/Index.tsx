@@ -365,28 +365,28 @@ const Index = () => {
             custom={1} variants={fadeUp}
             className="font-serif text-foreground mb-16 leading-[1.12] text-center"
           >
-            Lucas Montanari
+            Lucas Montanari Cerqueira
           </motion.h2>
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-              variants={fadeUp}
-              className="flex-shrink-0"
-            >
-              <img
-                src={lucasProfile}
-                alt="Lucas Montanari"
-                className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
-                loading="lazy"
-              />
-            </motion.div>
+              <motion.div
+                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+                variants={fadeUp}
+                className="flex-shrink-0"
+              >
+                <img
+                  src={lucasProfile}
+                  alt="Lucas Montanari Cerqueira"
+                  className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
+                  loading="lazy"
+                />
+              </motion.div>
             <motion.div
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
               variants={staggerContainer}
               className="sobre-text space-y-8"
             >
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-                Lucas Montanari é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado. Registro profissional: Coren-SP 557197.
+                Lucas Montanari Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado. Registros profissionais: Coren-SP 557197 (Enfermeiro) | Biomédico.
               </motion.p>
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
                 Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
