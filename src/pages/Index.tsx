@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroBg from "@/assets/hero-bg.jpg";
@@ -45,6 +45,17 @@ const Index = () => {
   const mentoriasRef = useRef<HTMLElement>(null);
   const atendimentoRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
+  const [isOverHero, setIsOverHero] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroHeight = heroRef.current?.offsetHeight ?? window.innerHeight;
+      setIsOverHero(window.scrollY < heroHeight - 80);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -276,7 +287,13 @@ const Index = () => {
       <FloatingSocial />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isOverHero
+            ? "bg-transparent backdrop-blur-0 border-b border-transparent"
+            : "bg-background/80 backdrop-blur-md border-b border-border/50"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <img src={lcLogo} alt="LC Clinica" className="h-10 w-auto" />
           <a
