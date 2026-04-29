@@ -853,8 +853,20 @@ const Index = () => {
             className="grid md:grid-cols-2 gap-12 mb-20"
           >
             {[
-              { city: "São Paulo — SP", address: "Atendimento com hora marcada", phone: "(11) 3192-3965" },
-              { city: "Rio de Janeiro — RJ", address: "Atendimento com hora marcada", phone: "(11) 3192-3965" },
+              {
+                city: "São Paulo — SP",
+                address: "Rua Carlos Sampaio, 304 — cj 91, Bela Vista",
+                extra: "Próximo à Avenida Paulista",
+                phone: "(11) 3192-3965",
+                mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Carlos+Sampaio+304+Bela+Vista+S%C3%A3o+Paulo",
+              },
+              {
+                city: "Rio de Janeiro — RJ",
+                address: "R. Farme de Amoedo, 75 — Grupo 302, Ipanema",
+                extra: "Atendimento com hora marcada",
+                phone: "(11) 3192-3965",
+                mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Farme+de+Amoedo+75+Ipanema+Rio+de+Janeiro",
+              },
             ].map((loc) => (
               <motion.div
                 key={loc.city}
@@ -868,6 +880,17 @@ const Index = () => {
                 <p className="font-sans text-[15px] text-muted-foreground leading-[1.65]">
                   {loc.address}
                 </p>
+                <p className="font-sans text-[13px] text-muted-foreground/70 mt-1">
+                  {loc.extra}
+                </p>
+                <a
+                  href={loc.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans text-[13px] text-secondary hover:text-foreground transition-colors mt-2 inline-block"
+                >
+                  Ver no mapa →
+                </a>
                 <a href={`tel:+${loc.phone.replace(/\D/g, '')}`} className="font-sans text-[14px] text-secondary hover:text-foreground transition-colors mt-2 inline-block">
                   {loc.phone}
                 </a>
@@ -887,13 +910,17 @@ const Index = () => {
             <div className="space-y-3">
               <div className="flex justify-between font-sans text-[15px]">
                 <span className="text-muted-foreground">Segunda a Sexta</span>
-                <span className="text-foreground font-medium">13:00 às 21:00</span>
+                <span className="text-foreground font-medium">11:00 às 21:00</span>
               </div>
               <div className="flex justify-between font-sans text-[15px]">
                 <span className="text-muted-foreground">Sábado</span>
-                <span className="text-foreground font-medium">09:00 às 14:00</span>
+                <span className="text-foreground font-medium">Cursos e mentorias</span>
               </div>
             </div>
+            <p className="font-sans text-[13px] text-muted-foreground/70 mt-5 leading-[1.6]">
+              Intervalo de 1h por consulta · Último horário disponível: 21:00.
+              Sábados dedicados a cursos e mentorias (horário a definir).
+            </p>
           </motion.div>
         </div>
       </section>
