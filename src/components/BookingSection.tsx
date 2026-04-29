@@ -27,10 +27,10 @@ const PROCEDURES = [
   "Outros",
 ];
 
-const TIME_SLOTS = Array.from({ length: 9 }, (_, i) => {
-  const hour = 13 + i;
-  return `${String(hour).padStart(2, "0")}:00`;
-});
+// Segunda a sexta: 11:00 às 21:00, com intervalo de 1h. Não exibir 12:00 (almoço).
+const TIME_SLOTS = Array.from({ length: 11 }, (_, i) => 11 + i)
+  .filter((h) => h !== 12)
+  .map((h) => `${String(h).padStart(2, "0")}:00`);
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
