@@ -854,7 +854,7 @@ const Index = () => {
             variants={fadeUp}
             className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-5xl mx-auto"
           >
-            <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Corpo Docente</h4>
+            <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Nossos Profissionais</h4>
             <div className="grid md:grid-cols-3 gap-10 mb-8">
               {/* Lucas */}
               <div className="flex flex-col items-center text-center">
@@ -867,18 +867,21 @@ const Index = () => {
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Direção de Mentorias</p>
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Cerqueira</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Coren 557197 — ENF SP. Pós-graduação em estética avançada, cursos de aperfeiçoamento em São Paulo (Lets Hof Academy, Clínica Lyns, Priscila Martelli).
+                  Coren-SP 557197. Especialista em Harmonização Facial e Corporal.
                 </p>
               </div>
               {/* Dr. Cláudio Pontes */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-full bg-muted shadow-md mb-5 flex items-center justify-center font-serif text-2xl text-muted-foreground/50">
-                  CP
-                </div>
+                <img
+                  src={drClaudio}
+                  alt="Dr. Claudio Pontes"
+                  className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
+                  loading="lazy"
+                />
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Mentoria Supervisionada</p>
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Claudio Pontes</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Cirurgião-dentista formado no Rio de Janeiro. Especialista em Harmonização Orofacial pelo Instituto Andrea Tedesco (2018). Pós em Fios de PDO Ultra V Lifting (Coreia, 2019). Professor Internacional de Preenchimento com ácido hialurônico, bioestimuladores e fios de PDO pela International Dental Academy Porto — Portugal (2020/21). Habilitado em Laser pelo Instituto Diogo Lustosa (Brasília, 2022). Mestrado em Harmonização Orofacial — São Leopoldo Mandic, turma Prof. Dra. Maristela Lobo (2024).
+                  Cirurgião-dentista. Mestre em Harmonização Orofacial — São Leopoldo Mandic.
                 </p>
               </div>
               {/* Dra. Anna Beatriz Dória */}
@@ -891,9 +894,8 @@ const Index = () => {
                 />
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Cirurgiã-Dentista</p>
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Anna Beatriz Dória</p>
-                <p className="font-sans text-[13px] text-muted-foreground/80 leading-[1.6] mb-3">CROSE 2480</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Cirurgiã-dentista atuante em Harmonização Facial, com foco em planejamento facial e procedimentos injetáveis. Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico (malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial). O Dr. Felipe ficará responsável pela parte de toxina botulínica e processo de envelhecimento facial, abordando raciocínio clínico, anatomia e prevenção. Trazendo também visão estética, planejamento e refinamento dos resultados — pontos que fazem diferença na prática clínica e no posicionamento profissional.
+                  CROSE 2480. Harmonização Facial com foco em planejamento e injetáveis.
                 </p>
               </div>
             </div>
