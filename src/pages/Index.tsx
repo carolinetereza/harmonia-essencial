@@ -12,6 +12,7 @@ import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
 import { Mail, Phone, Instagram, MapPin } from "lucide-react";
 import draBeatriz from "@/assets/dra-beatriz-doria.jpeg";
+import drClaudio from "@/assets/dr-claudio-pontes.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,6 +48,37 @@ const Index = () => {
   const atendimentoRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const [isOverHero, setIsOverHero] = useState(true);
+  const [activeProfile, setActiveProfile] = useState<"lucas" | "claudio" | "beatriz">("lucas");
+
+  const profiles = {
+    lucas: {
+      name: "Lucas Cerqueira",
+      role: "Direção · LC Clínica",
+      image: lucasProfile,
+      bio: [
+        "Lucas Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Enfermeiro formado em São Paulo, pós-graduado em estética avançada, com cursos de aperfeiçoamento em São Paulo (referências: Lets Hof Academy, Clínica Lyns, Priscila Martelli). Registro profissional: Coren-SP 557197.",
+        "Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio–São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.",
+      ],
+    },
+    claudio: {
+      name: "Dr. Claudio Pontes",
+      role: "Mentor · Harmonização Orofacial",
+      image: drClaudio,
+      bio: [
+        "Cirurgião-dentista formado no Rio de Janeiro, especialista em Harmonização Orofacial pelo Instituto Andrea Tedesco (2018) e Mestre em Harmonização Orofacial pela São Leopoldo Mandic, turma da Prof. Dra. Maristela Lobo (2024).",
+        "Pós-graduado em Fios de PDO Ultra V Lifting na Coreia (2019) e Professor Internacional de Preenchimento com ácido hialurônico, bioestimuladores e fios de PDO pela International Dental Academy Porto — Portugal (2020/21). Habilitado em Laser pelo Instituto Diogo Lustosa (Brasília, 2022). Traz à mentoria visão clínica refinada e domínio técnico em procedimentos injetáveis avançados.",
+      ],
+    },
+    beatriz: {
+      name: "Anna Beatriz Dória",
+      role: "Mentora · Cirurgiã-Dentista",
+      image: draBeatriz,
+      bio: [
+        "Cirurgiã-dentista atuante em Harmonização Facial, com foco em planejamento facial e procedimentos injetáveis. CROSE 2480.",
+        "Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico — malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial. Soma à mentoria visão estética, planejamento e refinamento dos resultados, pontos que fazem diferença na prática clínica e no posicionamento profissional.",
+      ],
+    },
+  } as const;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -381,36 +413,72 @@ const Index = () => {
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
             custom={1} variants={fadeUp}
-            className="font-serif text-foreground mb-16 leading-[1.12] text-center"
+            className="font-serif text-foreground mb-6 leading-[1.12] text-center"
           >
-            Lucas Cerqueira
+            Quem conduz a LC Clínica
           </motion.h2>
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-              <motion.div
-                initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-                variants={fadeUp}
-                className="flex-shrink-0"
-              >
-                <img
-                  src={lucasProfile}
-                  alt="Lucas Cerqueira"
-                  className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
-                  loading="lazy"
-                />
-              </motion.div>
-            <motion.div
-              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-              variants={staggerContainer}
-              className="sobre-text space-y-8"
-            >
-              <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-                Lucas Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Enfermeiro formado em São Paulo, pós-graduado em estética avançada, com cursos de aperfeiçoamento em São Paulo (referências: Lets Hof Academy, Clínica Lyns, Priscila Martelli). Registro profissional: Coren-SP 557197.
-              </motion.p>
-              <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-                Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
-              </motion.p>
-            </motion.div>
+          <motion.p
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}
+            custom={2} variants={fadeUp}
+            className="font-sans text-[14px] md:text-[15px] text-muted-foreground/80 text-center mb-14 max-w-xl mx-auto"
+          >
+            Clique em cada nome para conhecer o profissional.
+          </motion.p>
+
+          {/* Profile selector */}
+          <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-14">
+            {(Object.keys(profiles) as Array<keyof typeof profiles>).map((key) => {
+              const isActive = activeProfile === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setActiveProfile(key)}
+                  className={`group relative px-5 py-3 font-serif text-base md:text-lg transition-all duration-500 ${
+                    isActive ? "text-foreground" : "text-muted-foreground/60 hover:text-foreground"
+                  }`}
+                >
+                  {profiles[key].name}
+                  <span
+                    className={`absolute left-1/2 -translate-x-1/2 bottom-1 h-px bg-foreground transition-all duration-500 ${
+                      isActive ? "w-10" : "w-0 group-hover:w-6"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
+
+          <motion.div
+            key={activeProfile}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="flex flex-col md:flex-row items-center gap-12 md:gap-16"
+          >
+            <div className="flex-shrink-0">
+              <img
+                src={profiles[activeProfile].image}
+                alt={profiles[activeProfile].name}
+                className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
+                loading="lazy"
+              />
+            </div>
+            <div className="sobre-text space-y-6 flex-1">
+              <div>
+                <p className="font-sans text-[11px] tracking-[0.25em] uppercase text-muted-foreground/70 mb-2">
+                  {profiles[activeProfile].role}
+                </p>
+                <h3 className="font-serif text-foreground text-3xl md:text-4xl leading-tight">
+                  {profiles[activeProfile].name}
+                </h3>
+              </div>
+              {profiles[activeProfile].bio.map((p, i) => (
+                <p key={i} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
+                  {p}
+                </p>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -786,7 +854,7 @@ const Index = () => {
             variants={fadeUp}
             className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-5xl mx-auto"
           >
-            <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Corpo Docente</h4>
+            <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Nossos Profissionais</h4>
             <div className="grid md:grid-cols-3 gap-10 mb-8">
               {/* Lucas */}
               <div className="flex flex-col items-center text-center">
@@ -799,18 +867,21 @@ const Index = () => {
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Direção de Mentorias</p>
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Cerqueira</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Coren 557197 — ENF SP. Pós-graduação em estética avançada, cursos de aperfeiçoamento em São Paulo (Lets Hof Academy, Clínica Lyns, Priscila Martelli).
+                  Coren-SP 557197. Especialista em Harmonização Facial e Corporal.
                 </p>
               </div>
               {/* Dr. Cláudio Pontes */}
               <div className="flex flex-col items-center text-center">
-                <div className="w-32 h-32 rounded-full bg-muted shadow-md mb-5 flex items-center justify-center font-serif text-2xl text-muted-foreground/50">
-                  CP
-                </div>
+                <img
+                  src={drClaudio}
+                  alt="Dr. Claudio Pontes"
+                  className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
+                  loading="lazy"
+                />
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Mentoria Supervisionada</p>
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Claudio Pontes</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Cirurgião-dentista formado no Rio de Janeiro. Especialista em Harmonização Orofacial pelo Instituto Andrea Tedesco (2018). Pós em Fios de PDO Ultra V Lifting (Coreia, 2019). Professor Internacional de Preenchimento com ácido hialurônico, bioestimuladores e fios de PDO pela International Dental Academy Porto — Portugal (2020/21). Habilitado em Laser pelo Instituto Diogo Lustosa (Brasília, 2022). Mestrado em Harmonização Orofacial — São Leopoldo Mandic, turma Prof. Dra. Maristela Lobo (2024).
+                  Cirurgião-dentista. Mestre em Harmonização Orofacial — São Leopoldo Mandic.
                 </p>
               </div>
               {/* Dra. Anna Beatriz Dória */}
@@ -823,9 +894,8 @@ const Index = () => {
                 />
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Cirurgiã-Dentista</p>
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Anna Beatriz Dória</p>
-                <p className="font-sans text-[13px] text-muted-foreground/80 leading-[1.6] mb-3">CROSE 2480</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Cirurgiã-dentista atuante em Harmonização Facial, com foco em planejamento facial e procedimentos injetáveis. Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico (malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial). O Dr. Felipe ficará responsável pela parte de toxina botulínica e processo de envelhecimento facial, abordando raciocínio clínico, anatomia e prevenção. Trazendo também visão estética, planejamento e refinamento dos resultados — pontos que fazem diferença na prática clínica e no posicionamento profissional.
+                  CROSE 2480. Harmonização Facial com foco em planejamento e injetáveis.
                 </p>
               </div>
             </div>
