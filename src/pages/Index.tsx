@@ -11,6 +11,7 @@ import FloatingSocial from "@/components/FloatingSocial";
 import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
 import { Mail, Phone, Instagram, MapPin } from "lucide-react";
+import draBeatriz from "@/assets/dra-beatriz-doria.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -325,7 +326,7 @@ const Index = () => {
             className="text-xs tracking-[0.35em] uppercase font-sans font-medium mb-4"
             style={{ color: "hsl(0 0% 85%)" }}
           >
-            Founder Lucas Montanari Cerqueira
+            Founder Lucas Cerqueira
           </motion.p>
 
           <motion.h1
@@ -382,7 +383,7 @@ const Index = () => {
             custom={1} variants={fadeUp}
             className="font-serif text-foreground mb-16 leading-[1.12] text-center"
           >
-            Lucas Montanari Cerqueira
+            Lucas Cerqueira
           </motion.h2>
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
               <motion.div
@@ -392,7 +393,7 @@ const Index = () => {
               >
                 <img
                   src={lucasProfile}
-                  alt="Lucas Montanari Cerqueira"
+                  alt="Lucas Cerqueira"
                   className="w-64 h-80 md:w-72 md:h-96 object-cover rounded-sm shadow-xl"
                   loading="lazy"
                 />
@@ -403,7 +404,7 @@ const Index = () => {
               className="sobre-text space-y-8"
             >
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
-                Lucas Montanari Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Com dupla graduação em Enfermagem e Biomedicina em São Paulo, e pós-graduado em Dermatologia e Estética Avançada, une profundo conhecimento anatômico a um olhar refinado. Registros profissionais: Coren-SP 557197 (Enfermeiro) | Biomédico.
+                Lucas Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Enfermeiro formado em São Paulo, pós-graduado em estética avançada, com cursos de aperfeiçoamento em São Paulo (referências: Lets Hof Academy, Clínica Lyns, Priscila Martelli). Registro profissional: Coren-SP 557197.
               </motion.p>
               <motion.p variants={fadeUp} className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75]">
                 Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio-São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.
@@ -646,7 +647,7 @@ const Index = () => {
               custom={2} variants={fadeUp}
               className="font-sans text-[17px] md:text-lg font-normal text-muted-foreground leading-[1.75] max-w-2xl mx-auto"
             >
-              Programa exclusivo de cursos e mentorias para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Direção de Lucas Montanari Cerqueira.
+              Programa exclusivo de cursos e mentorias para profissionais da estética que desejam aprimorar suas técnicas e elevar o nível de atendimento. Direção de Lucas Cerqueira.
             </motion.p>
             <motion.p
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
@@ -660,52 +661,49 @@ const Index = () => {
               custom={4} variants={fadeUp}
               className="font-sans text-[14px] italic text-muted-foreground/80 mt-3 max-w-2xl mx-auto"
             >
-              Conteúdos programáticos serão disponibilizados em breve pelo Dr. Felipe Ajala.
+              Conteúdos programáticos serão disponibilizados em breve pelo corpo docente.
             </motion.p>
           </div>
 
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
             variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-8 mb-12"
+            className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto"
           >
             {[
               {
-                tag: "Curso · Maio",
-                month: "Maio",
-                dates: "24 e 25 de Maio (sábado e domingo)",
-                title: "Biomestimuladores de Colágeno Facial",
-                desc: "Biomestimuladores facial, toxina e preenchimento. Carga horária: 12 horas. Teoria (maio e junho).",
-                instructor: "Dr. Felipe Ajala — CRM 280980 | CRBM 20230",
-                inscricao: "R$ 500 (via PIX)",
-                investimento: "R$ 3.800 em até 10x sem juros",
-              },
-              {
                 tag: "Curso · Junho",
                 month: "Junho",
-                dates: "27 e 28 de Junho (sábado e domingo)",
+                dates: "2 e 3 de Junho — 4 alunos",
                 title: "Toxina e Preenchedores",
-                desc: "Toxina botulínica e preenchedores para harmonização facial. Carga horária: 12 horas. Teoria (maio e junho).",
-                instructor: "Dr. Felipe Ajala — CRM 280980 | CRBM 20230",
+                desc: "Dia 02 — módulo de Preenchedores (09h às 12h teoria | 14h às 18h prática). Dia 03 — módulo de Toxina Botulínica (09h às 12h teoria | 14h às 18h prática). Carga horária: 12 horas.",
+                instructor: "Dra. Anna Beatriz Dória — CROSE 2480",
                 inscricao: "R$ 500 (via PIX)",
                 investimento: "R$ 3.700 em até 10x sem juros",
+                soldOut: true,
               },
               {
                 tag: "Mentoria · Julho",
                 month: "Julho",
                 dates: "25 de Julho (sábado)",
                 title: "Complicações por Preenchedores",
-                desc: "Mentoria supervisionada. Carga horária: 6 horas. Coordenação: Lucas Montanari Cerqueira.",
-                instructor: "Dr. Cláudio Fontes — Cirurgião Dentista | CRO RJ 31865",
+                desc: "Mentoria supervisionada. Carga horária: 6 horas. Coordenação: Lucas Cerqueira.",
+                instructor: "Dr. Cláudio Pontes — Cirurgião Dentista | CRO RJ 31865",
                 inscricao: "R$ 500 (via PIX)",
                 investimento: "R$ 2.700",
+                soldOut: false,
               },
             ].map((mentoria, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeUp}
-                className="mentoria-card glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300"
+                className="mentoria-card glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300 relative"
               >
+                {mentoria.soldOut && (
+                  <span className="absolute top-4 right-4 px-3 py-1 text-[10px] tracking-[0.18em] uppercase font-sans font-medium bg-foreground text-background rounded-sm">
+                    Turma esgotada
+                  </span>
+                )}
                 <p className="font-sans text-xs tracking-[0.2em] uppercase text-secondary mb-3 font-medium">
                   {mentoria.tag} 2026
                 </p>
@@ -746,7 +744,7 @@ const Index = () => {
                     </div>
                   </div>
                   <p className="font-sans text-[12px] tracking-[0.1em] uppercase text-muted-foreground/60 pt-2">
-                    Direção: Lucas Montanari Cerqueira
+                    Direção: Lucas Cerqueira
                   </p>
                   <p className="font-sans text-[13px] text-muted-foreground italic">
                     Conteúdo programático em breve.
@@ -786,24 +784,49 @@ const Index = () => {
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
             variants={fadeUp}
-            className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-3xl mx-auto"
+            className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-5xl mx-auto"
           >
-            <h4 className="font-serif font-medium text-foreground mb-6 text-lg text-center">Corpo Docente</h4>
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div>
-                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Teoria e Prática</p>
-                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Felipe Ajala</p>
-                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">Médico CRM 280980 | Biomédico CRBM 20230</p>
+            <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Corpo Docente</h4>
+            <div className="grid md:grid-cols-3 gap-10 mb-8">
+              {/* Lucas */}
+              <div className="flex flex-col items-center text-center">
+                <img
+                  src={lucasProfile}
+                  alt="Lucas Cerqueira"
+                  className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
+                  loading="lazy"
+                />
+                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Direção de Mentorias</p>
+                <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Cerqueira</p>
+                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
+                  Coren 557197 — ENF SP. Pós-graduação em estética avançada, cursos de aperfeiçoamento em São Paulo (Lets Hof Academy, Clínica Lyns, Priscila Martelli).
+                </p>
               </div>
-              <div>
+              {/* Dr. Cláudio Pontes */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-32 h-32 rounded-full bg-muted shadow-md mb-5 flex items-center justify-center font-serif text-2xl text-muted-foreground/50">
+                  CP
+                </div>
                 <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Mentoria Supervisionada</p>
-                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Cláudio Fontes</p>
-                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">Cirurgião Dentista | CRO RJ 31865</p>
+                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Claudio Pontes</p>
+                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
+                  Cirurgião-dentista formado no Rio de Janeiro. Especialista em Harmonização Orofacial pelo Instituto Andrea Tedesco (2018). Pós em Fios de PDO Ultra V Lifting (Coreia, 2019). Professor Internacional de Preenchimento com ácido hialurônico, bioestimuladores e fios de PDO pela International Dental Academy Porto — Portugal (2020/21). Habilitado em Laser pelo Instituto Diogo Lustosa (Brasília, 2022). Mestrado em Harmonização Orofacial — São Leopoldo Mandic, turma Prof. Dra. Maristela Lobo (2024).
+                </p>
               </div>
-              <div>
-                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Direção</p>
-                <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Montanari Cerqueira</p>
-                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">Enfermeiro | Biomédico | COREN 557197 — Diretor de educação e mentorias</p>
+              {/* Dra. Anna Beatriz Dória */}
+              <div className="flex flex-col items-center text-center">
+                <img
+                  src={draBeatriz}
+                  alt="Dra. Anna Beatriz Dória"
+                  className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
+                  loading="lazy"
+                />
+                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Cirurgiã-Dentista</p>
+                <p className="font-serif text-foreground text-base leading-tight mb-1">Anna Beatriz Dória</p>
+                <p className="font-sans text-[13px] text-muted-foreground/80 leading-[1.6] mb-3">CROSE 2480</p>
+                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
+                  Cirurgiã-dentista atuante em Harmonização Facial, com foco em planejamento facial e procedimentos injetáveis. Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico (malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial). O Dr. Felipe ficará responsável pela parte de toxina botulínica e processo de envelhecimento facial, abordando raciocínio clínico, anatomia e prevenção. Trazendo também visão estética, planejamento e refinamento dos resultados — pontos que fazem diferença na prática clínica e no posicionamento profissional.
+                </p>
               </div>
             </div>
             <p className="font-sans text-[13px] text-muted-foreground italic text-center border-t border-border pt-5">
@@ -820,10 +843,10 @@ const Index = () => {
             <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-3">Certificação</p>
             <h4 className="font-serif font-medium text-foreground mb-3 text-base">Certificado de 12 horas</h4>
             <p className="font-sans text-[14px] text-muted-foreground leading-[1.65]">
-              Emitido após conclusão e assinado por Dr. Felipe Ajala (Médico).
+              Emitido após conclusão pelo corpo docente da LC Clínica.
             </p>
             <p className="font-sans text-[13px] text-muted-foreground/70 mt-2">
-              Direção: Lucas Montanari Cerqueira — LC Clínica
+              Direção: Lucas Cerqueira — LC Clínica
             </p>
           </motion.div>
 
@@ -993,6 +1016,9 @@ const Index = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex flex-col items-center md:items-start gap-3">
+              <p className="font-serif text-base text-background/80 tracking-wide">
+                LC Clínica
+              </p>
               <p className="font-sans text-[13px] text-background/45">
                 Harmonização Facial e Corporal
               </p>
@@ -1032,9 +1058,6 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-14 pt-8 border-t border-background/10 text-center">
-            <p className="font-sans text-[13px] text-background/35 mb-2">
-              Lucas Montanari Cerqueira — Coren-SP 557197 | Biomédico
-            </p>
             <p className="font-sans text-[13px] text-background/25">
               © {new Date().getFullYear()} LC Clínica — lcclinica.com.br — Todos os direitos reservados.
             </p>
