@@ -47,7 +47,7 @@ const Index = () => {
   const atendimentoRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const [isOverHero, setIsOverHero] = useState(true);
-  const [activeProfile, setActiveProfile] = useState<"lucas" | "claudio" | "beatriz">("lucas");
+  const [activeProfile, setActiveProfile] = useState<"lucas" | "beatriz">("lucas");
 
   const profiles = {
     lucas: {
@@ -59,13 +59,13 @@ const Index = () => {
         "Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio–São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.",
       ],
     },
-    claudio: {
-      name: "Dr. Claudio Pontes",
-      role: "Mentor · Harmonização Orofacial",
-      image: drClaudio,
+    beatriz: {
+      name: "Anna Beatriz Dória",
+      role: "Mentora · Cirurgiã-Dentista",
+      image: draBeatriz,
       bio: [
-        "Cirurgião-dentista formado no Rio de Janeiro, especialista em Harmonização Orofacial pelo Instituto Andrea Tedesco (2018) e Mestre em Harmonização Orofacial pela São Leopoldo Mandic, turma da Prof. Dra. Maristela Lobo (2024).",
-        "Pós-graduado em Fios de PDO Ultra V Lifting na Coreia (2019) e Professor Internacional de Preenchimento com ácido hialurônico, bioestimuladores e fios de PDO pela International Dental Academy Porto — Portugal (2020/21). Habilitado em Laser pelo Instituto Diogo Lustosa (Brasília, 2022). Traz à mentoria visão clínica refinada e domínio técnico em procedimentos injetáveis avançados.",
+        "Cirurgiã-dentista atuante em Harmonização Facial, com foco em planejamento facial e procedimentos injetáveis. CROSE 2480.",
+        "Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico — malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial. Soma à mentoria visão estética, planejamento e refinamento dos resultados, pontos que fazem diferença na prática clínica e no posicionamento profissional.",
       ],
     },
     beatriz: {
