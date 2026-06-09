@@ -12,7 +12,6 @@ import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
 import { Mail, Phone, Instagram, MapPin } from "lucide-react";
 import draBeatriz from "@/assets/dra-beatriz-doria.jpeg";
-import drClaudio from "@/assets/dr-claudio-pontes.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
