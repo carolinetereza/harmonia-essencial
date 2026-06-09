@@ -12,7 +12,6 @@ import ParticleBackground from "@/components/ParticleBackground";
 import Card3D from "@/components/Card3D";
 import { Mail, Phone, Instagram, MapPin } from "lucide-react";
 import draBeatriz from "@/assets/dra-beatriz-doria.jpeg";
-import drClaudio from "@/assets/dr-claudio-pontes.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +47,7 @@ const Index = () => {
   const atendimentoRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const [isOverHero, setIsOverHero] = useState(true);
-  const [activeProfile, setActiveProfile] = useState<"lucas" | "claudio" | "beatriz">("lucas");
+  const [activeProfile, setActiveProfile] = useState<"lucas" | "beatriz">("lucas");
 
   const profiles = {
     lucas: {
@@ -58,15 +57,6 @@ const Index = () => {
       bio: [
         "Lucas Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Enfermeiro formado em São Paulo, pós-graduado em estética avançada, com cursos de aperfeiçoamento em São Paulo (referências: Lets Hof Academy, Clínica Lyns, Priscila Martelli). Registro profissional: Coren-SP 557197.",
         "Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio–São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.",
-      ],
-    },
-    claudio: {
-      name: "Dr. Claudio Pontes",
-      role: "Mentor · Harmonização Orofacial",
-      image: drClaudio,
-      bio: [
-        "Cirurgião-dentista formado no Rio de Janeiro, especialista em Harmonização Orofacial pelo Instituto Andrea Tedesco (2018) e Mestre em Harmonização Orofacial pela São Leopoldo Mandic, turma da Prof. Dra. Maristela Lobo (2024).",
-        "Pós-graduado em Fios de PDO Ultra V Lifting na Coreia (2019) e Professor Internacional de Preenchimento com ácido hialurônico, bioestimuladores e fios de PDO pela International Dental Academy Porto — Portugal (2020/21). Habilitado em Laser pelo Instituto Diogo Lustosa (Brasília, 2022). Traz à mentoria visão clínica refinada e domínio técnico em procedimentos injetáveis avançados.",
       ],
     },
     beatriz: {
@@ -750,17 +740,6 @@ const Index = () => {
                 investimento: "R$ 3.700 em até 10x sem juros",
                 soldOut: true,
               },
-              {
-                tag: "Mentoria · Julho",
-                month: "Julho",
-                dates: "25 de Julho (sábado)",
-                title: "Complicações por Preenchedores",
-                desc: "Mentoria supervisionada. Carga horária: 6 horas. Coordenação: Lucas Cerqueira.",
-                instructor: "Dr. Cláudio Pontes — Cirurgião Dentista | CRO RJ 31865",
-                inscricao: "R$ 500 (via PIX)",
-                investimento: "R$ 2.700",
-                soldOut: false,
-              },
             ].map((mentoria, idx) => (
               <motion.div
                 key={idx}
@@ -855,7 +834,7 @@ const Index = () => {
             className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-5xl mx-auto"
           >
             <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Nossos Profissionais</h4>
-            <div className="grid md:grid-cols-3 gap-10 mb-8">
+            <div className="grid md:grid-cols-2 gap-10 mb-8">
               {/* Lucas */}
               <div className="flex flex-col items-center text-center">
                 <img
@@ -868,20 +847,6 @@ const Index = () => {
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Cerqueira</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
                   Coren-SP 557197. Especialista em Harmonização Facial e Corporal.
-                </p>
-              </div>
-              {/* Dr. Cláudio Pontes */}
-              <div className="flex flex-col items-center text-center">
-                <img
-                  src={drClaudio}
-                  alt="Dr. Claudio Pontes"
-                  className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
-                  loading="lazy"
-                />
-                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Mentoria Supervisionada</p>
-                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Claudio Pontes</p>
-                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Cirurgião-dentista. Mestre em Harmonização Orofacial — São Leopoldo Mandic.
                 </p>
               </div>
               {/* Dra. Anna Beatriz Dória */}
