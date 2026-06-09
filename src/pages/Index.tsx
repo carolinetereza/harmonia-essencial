@@ -68,15 +68,6 @@ const Index = () => {
         "Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico — malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial. Soma à mentoria visão estética, planejamento e refinamento dos resultados, pontos que fazem diferença na prática clínica e no posicionamento profissional.",
       ],
     },
-    beatriz: {
-      name: "Anna Beatriz Dória",
-      role: "Mentora · Cirurgiã-Dentista",
-      image: draBeatriz,
-      bio: [
-        "Cirurgiã-dentista atuante em Harmonização Facial, com foco em planejamento facial e procedimentos injetáveis. CROSE 2480.",
-        "Na imersão, aprofunda análise facial e técnicas de preenchimento para harmonização e lifting volumétrico — malar, mandíbula, mento, sulco nasogeniano, linhas de marionete e preenchimento labial. Soma à mentoria visão estética, planejamento e refinamento dos resultados, pontos que fazem diferença na prática clínica e no posicionamento profissional.",
-      ],
-    },
   } as const;
 
   useEffect(() => {
@@ -749,17 +740,6 @@ const Index = () => {
                 investimento: "R$ 3.700 em até 10x sem juros",
                 soldOut: true,
               },
-              {
-                tag: "Mentoria · Julho",
-                month: "Julho",
-                dates: "25 de Julho (sábado)",
-                title: "Complicações por Preenchedores",
-                desc: "Mentoria supervisionada. Carga horária: 6 horas. Coordenação: Lucas Cerqueira.",
-                instructor: "Dr. Cláudio Pontes — Cirurgião Dentista | CRO RJ 31865",
-                inscricao: "R$ 500 (via PIX)",
-                investimento: "R$ 2.700",
-                soldOut: false,
-              },
             ].map((mentoria, idx) => (
               <motion.div
                 key={idx}
@@ -854,7 +834,7 @@ const Index = () => {
             className="glass-card rounded-sm p-8 md:p-10 mb-12 max-w-5xl mx-auto"
           >
             <h4 className="font-serif font-medium text-foreground mb-10 text-lg text-center">Nossos Profissionais</h4>
-            <div className="grid md:grid-cols-3 gap-10 mb-8">
+            <div className="grid md:grid-cols-2 gap-10 mb-8">
               {/* Lucas */}
               <div className="flex flex-col items-center text-center">
                 <img
@@ -867,20 +847,6 @@ const Index = () => {
                 <p className="font-serif text-foreground text-base leading-tight mb-1">Lucas Cerqueira</p>
                 <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
                   Coren-SP 557197. Especialista em Harmonização Facial e Corporal.
-                </p>
-              </div>
-              {/* Dr. Cláudio Pontes */}
-              <div className="flex flex-col items-center text-center">
-                <img
-                  src={drClaudio}
-                  alt="Dr. Claudio Pontes"
-                  className="w-32 h-32 object-cover rounded-full shadow-md mb-5"
-                  loading="lazy"
-                />
-                <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground/60 mb-2">Mentoria Supervisionada</p>
-                <p className="font-serif text-foreground text-base leading-tight mb-1">Dr. Claudio Pontes</p>
-                <p className="font-sans text-[13px] text-muted-foreground leading-[1.6]">
-                  Cirurgião-dentista. Mestre em Harmonização Orofacial — São Leopoldo Mandic.
                 </p>
               </div>
               {/* Dra. Anna Beatriz Dória */}
