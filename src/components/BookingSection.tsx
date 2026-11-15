@@ -88,7 +88,7 @@ Horário: ${selectedTime}
 Aguardo confirmação.`;
 
     const encoded = encodeURIComponent(message);
-    const url = `https://wa.me/551131923965?text=${encoded}`;
+    const url = `https://wa.me/5511986640263?text=${encoded}`;
 
     setTimeout(() => {
       window.open(url, "_blank", "noopener,noreferrer");

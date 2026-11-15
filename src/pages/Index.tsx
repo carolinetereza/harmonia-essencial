@@ -15,9 +15,9 @@ import draBeatriz from "@/assets/dra-beatriz-doria.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const WHATSAPP_URL = "https://wa.me/551131923965";
-const WHATSAPP_MENTORIA_URL = "https://wa.me/551131923965?text=" + encodeURIComponent("Olá, gostaria de saber mais sobre as Mentorias 2026.");
-const WHATSAPP_PACIENTE_MODELO_URL = "https://wa.me/551131923965?text=" + encodeURIComponent("Olá, gostaria de informações sobre a vaga para paciente modelo.");
+const WHATSAPP_URL = "https://wa.me/5511986640263";
+const WHATSAPP_MENTORIA_URL = "https://wa.me/5511986640263?text=" + encodeURIComponent("Olá, gostaria de saber mais sobre as Mentorias 2026.");
+const WHATSAPP_PACIENTE_MODELO_URL = "https://wa.me/5511986640263?text=" + encodeURIComponent("Olá, gostaria de informações sobre a vaga para paciente modelo.");
 const EMAIL = "lcclinic@yahoo.com";
 const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hof";
 
@@ -56,7 +56,7 @@ const Index = () => {
       image: lucasProfile,
       bio: [
         "Lucas Cerqueira é especialista em Harmonização Facial e Corporal e Estética Avançada. Enfermeiro formado em São Paulo, pós-graduado em estética avançada, com cursos de aperfeiçoamento em São Paulo (referências: Lets Hof Academy, Clínica Lyns, Priscila Martelli). Registro profissional: Coren-SP 557197.",
-        "Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo Rio–São Paulo, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.",
+        "Desde 2020, dedica-se a realçar a beleza com segurança e naturalidade, somando mais de 4.000 pacientes atendidos. Além da atuação clínica no eixo São Paulo–Aracaju, compartilha sua expertise ministrando Mentorias VIP para profissionais da área.",
       ],
     },
     beatriz: {
@@ -205,28 +205,6 @@ const Index = () => {
         });
       }
 
-      // Mentorias — scale up cards
-      if (mentoriasRef.current) {
-        const mentoriaCards = mentoriasRef.current.querySelectorAll(".mentoria-card");
-        gsap.fromTo(
-          mentoriaCards,
-          { scale: 0.9, opacity: 0, y: 40 },
-          {
-            scale: 1,
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "back.out(1.4)",
-            scrollTrigger: {
-              trigger: mentoriasRef.current,
-              start: "top 70%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
-      }
-
       // Atendimento — location cards fade + slide up
       if (atendimentoRef.current) {
         const locs = atendimentoRef.current.querySelectorAll(".location-card");
@@ -320,7 +298,9 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <img src={lcLogo} alt="LC Clinica" className="h-10 w-auto" />
           <a
-            href="#agendar"
+            href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
             className="px-6 md:px-8 py-2 md:py-2.5 text-[12px] md:text-[13px] tracking-[0.08em] font-sans font-medium text-primary-foreground btn-premium rounded-sm"
           >
             Agendar
@@ -379,13 +359,15 @@ const Index = () => {
             className="flex flex-col items-center gap-6"
           >
             <a
-              href="#agendar"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-12 py-4 text-[13px] tracking-[0.08em] font-sans font-medium backdrop-blur-sm border border-white/30 text-white btn-premium-outline"
             >
               Agendar consulta privada
             </a>
             <p className="text-[13px] tracking-[0.12em] font-sans text-white/45 font-normal">
-              Atendimento em São Paulo e Rio de Janeiro
+              Atendimento em São Paulo e Aracaju
             </p>
           </motion.div>
         </div>
@@ -723,84 +705,6 @@ const Index = () => {
             </motion.p>
           </div>
 
-          <motion.div
-            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto"
-          >
-            {[
-              {
-                tag: "Curso · Junho",
-                month: "Junho",
-                dates: "2 e 3 de Junho — 4 alunos",
-                title: "Toxina e Preenchedores",
-                desc: "Dia 02 — módulo de Preenchedores (09h às 12h teoria | 14h às 18h prática). Dia 03 — módulo de Toxina Botulínica (09h às 12h teoria | 14h às 18h prática). Carga horária: 12 horas.",
-                instructor: "Dra. Anna Beatriz Dória — CROSE 2480",
-                inscricao: "R$ 500 (via PIX)",
-                investimento: "R$ 3.700 em até 10x sem juros",
-                soldOut: true,
-              },
-            ].map((mentoria, idx) => (
-              <motion.div
-                key={idx}
-                variants={fadeUp}
-                className="mentoria-card glass-card p-8 md:p-10 rounded-sm hover:-translate-y-1 transition-transform duration-300 relative"
-              >
-                {mentoria.soldOut && (
-                  <span className="absolute top-4 right-4 px-3 py-1 text-[10px] tracking-[0.18em] uppercase font-sans font-medium bg-foreground text-background rounded-sm">
-                    Turma esgotada
-                  </span>
-                )}
-                <p className="font-sans text-xs tracking-[0.2em] uppercase text-secondary mb-3 font-medium">
-                  {mentoria.tag} 2026
-                </p>
-                <h3 className="font-serif font-medium text-foreground mb-2 leading-tight text-lg md:text-xl">
-                  {mentoria.title}
-                </h3>
-                <p className="font-sans text-[14px] text-foreground font-medium mb-4">
-                  {mentoria.dates}
-                </p>
-                <p className="font-sans text-[15px] text-muted-foreground leading-[1.65] mb-6">
-                  {mentoria.desc}
-                </p>
-                <div className="border-t border-border pt-5 space-y-3">
-                  <div>
-                    <p className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
-                      Ministrante
-                    </p>
-                    <p className="font-sans text-[14px] text-foreground">
-                      {mentoria.instructor}
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:gap-6 gap-2">
-                    <div>
-                      <p className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
-                        Inscrição
-                      </p>
-                      <p className="font-sans text-[14px] text-foreground font-medium">
-                        {mentoria.inscricao}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-sans text-[11px] tracking-[0.15em] uppercase text-muted-foreground/60 mb-1">
-                        Investimento
-                      </p>
-                      <p className="font-sans text-[14px] text-foreground font-medium">
-                        {mentoria.investimento}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="font-sans text-[12px] tracking-[0.1em] uppercase text-muted-foreground/60 pt-2">
-                    Direção: Lucas Cerqueira
-                  </p>
-                  <p className="font-sans text-[13px] text-muted-foreground italic">
-                    Conteúdo programático em breve.
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
           {/* Localização das Mentorias */}
           <motion.div
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-40px" }}
@@ -932,15 +836,15 @@ const Index = () => {
                 city: "São Paulo — SP",
                 address: "Rua Carlos Sampaio, 304 — cj 91, Bela Vista",
                 extra: "Próximo à Avenida Paulista",
-                phone: "(11) 3192-3965",
+                phone: "(11) 98664-0263",
                 mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Carlos+Sampaio+304+Bela+Vista+S%C3%A3o+Paulo",
               },
               {
-                city: "Rio de Janeiro — RJ",
-                address: "R. Farme de Amoedo, 75 — Grupo 302, Ipanema",
+                city: "Aracaju — SE",
+                address: "Rua Dr. José Roberto Ribeiro, 54 — Grageru",
                 extra: "Atendimento com hora marcada",
-                phone: "(11) 3192-3965",
-                mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Farme+de+Amoedo+75+Ipanema+Rio+de+Janeiro",
+                phone: "(11) 98664-0263",
+                mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rua+Dr+Jose+Roberto+Ribeiro+54+Grageru+Aracaju+Sergipe",
               },
             ].map((loc) => (
               <motion.div
@@ -966,7 +870,7 @@ const Index = () => {
                 >
                   Ver no mapa →
                 </a>
-                <a href={`tel:+${loc.phone.replace(/\D/g, '')}`} className="font-sans text-[14px] text-secondary hover:text-foreground transition-colors mt-2 inline-block">
+                <a href={`tel:+55${loc.phone.replace(/\D/g, '')}`} className="font-sans text-[14px] text-secondary hover:text-foreground transition-colors mt-2 inline-block">
                   {loc.phone}
                 </a>
               </motion.div>
@@ -1061,7 +965,7 @@ const Index = () => {
             <div className="flex flex-col items-center gap-4">
               <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <p className="font-sans text-[13px] text-background/45">
-                  São Paulo — SP &nbsp;|&nbsp; Rio de Janeiro — RJ
+                  São Paulo — SP &nbsp;|&nbsp; Aracaju — SE
                 </p>
                 <a
                   href={`mailto:${EMAIL}`}
@@ -1070,10 +974,10 @@ const Index = () => {
                   {EMAIL}
                 </a>
                 <a
-                  href="tel:+551131923965"
+                  href="tel:+5511986640263"
                   className="font-sans text-[13px] text-background/65 hover:text-background transition-colors"
                 >
-                  (11) 3192-3965
+                  (11) 98664-0263
                 </a>
               </div>
               <div className="flex items-center gap-4">

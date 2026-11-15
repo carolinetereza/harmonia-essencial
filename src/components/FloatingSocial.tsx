@@ -7,7 +7,7 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const WHATSAPP_URL = "https://wa.me/551131923965";
+const WHATSAPP_URL = "https://wa.me/5511986640263";
 const INSTAGRAM_URL = "https://www.instagram.com/lucasmontanari.hofsp/";
 
 const InstagramIcon = () => (
